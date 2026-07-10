@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 797671,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 797671,
+        "MainHabs": "Upland heathland",
+        "HabCodes": "UHEAT",
+        "FeatDesc": "",
+        "FeatCodes": "",
+        "OtherClass": "Annex1(H4010, H4030)",
+        "AddHabs": "BLBOG, UFFSW",
+        "PrimSource": "North York Moors Digital NVC Survey 1997 (UHEAT)",
+        "AreaHa": 843.51,
+        "Version": "Sep_25",
+        "UID": "PHID47956673_049965327",
+        "GlobalID": "daaa3e79-3ea5-46eb-84b5-e4393108e8b3",
+        "Shape__Area": 8435072.167953491,
+        "Shape__Length": 36492.67614449031
+      }
+    }
+  ]
+}

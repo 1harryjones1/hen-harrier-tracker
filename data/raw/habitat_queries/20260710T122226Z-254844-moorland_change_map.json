@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 4511,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 4511,
+        "LOCATION": "North_Pennines",
+        "CHANGE_STATUS": "No recent Burn or Cut in vegetation",
+        "DATE_AFTER": "20250512",
+        "DATE_BEFORE": "20240622",
+        "AREA_m2": 31485200,
+        "GlobalID": "f10db51b-543d-492f-b466-1cf23ae149a7",
+        "Shape__Area": 31460200.000793457,
+        "Shape__Length": 489259.9999991767
+      }
+    }
+  ]
+}

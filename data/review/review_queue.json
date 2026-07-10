@@ -1,0 +1,371 @@
+{
+  "generated_at": "2026-07-10T12:23:12Z",
+  "items": {
+    "rq_match_evt_20260710T122157Z_213843": {
+      "bird_id": "213843",
+      "bird_name": "Pete",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_213843",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_213843",
+      "review_id": "rq_match_evt_20260710T122157Z_213843",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:10Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Pete (213843): alive -> missing_fate_unknown, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_213851": {
+      "bird_id": "213851",
+      "bird_name": "Rodney",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_213851",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_213851",
+      "review_id": "rq_match_evt_20260710T122157Z_213851",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:12Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Rodney (213851): alive -> missing_fate_unknown, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_213924": {
+      "bird_id": "213924",
+      "bird_name": "R3-F2-22",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_213924",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_213924",
+      "review_id": "rq_match_evt_20260710T122157Z_213924",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:16Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "R3-F2-22 (213924): alive -> missing_fate_unknown, June 2026 update. intersects mapped moorland/upland habitat."
+    },
+    "rq_match_evt_20260710T122157Z_232636": {
+      "bird_id": "232636",
+      "bird_name": "R1-F4-22",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_232636",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_232636",
+      "review_id": "rq_match_evt_20260710T122157Z_232636",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:14Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "R1-F4-22 (232636): missing_fate_unknown -> dead, June 2026 update. intersects mapped moorland/upland habitat."
+    },
+    "rq_match_evt_20260710T122157Z_232640": {
+      "bird_id": "232640",
+      "bird_name": "R1-F1-22",
+      "confidence_tier": "location_not_disclosed",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_232640",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_232640",
+      "review_id": "rq_match_evt_20260710T122157Z_232640",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:12Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "R1-F1-22 (232640): missing_fate_unknown -> dead, June 2026 update. location not disclosed by NE."
+    },
+    "rq_match_evt_20260710T122157Z_240290": {
+      "bird_id": "240290",
+      "bird_name": "Cillian",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_240290",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_240290",
+      "review_id": "rq_match_evt_20260710T122157Z_240290",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:20Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Cillian (240290): missing_fate_unknown -> dead, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_240291": {
+      "bird_id": "240291",
+      "bird_name": "Baldur",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_240291",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_240291",
+      "review_id": "rq_match_evt_20260710T122157Z_240291",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:22Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Baldur (240291): alive -> missing_fate_unknown, June 2026 update. intersects mapped moorland/upland habitat."
+    },
+    "rq_match_evt_20260710T122157Z_240294": {
+      "bird_id": "240294",
+      "bird_name": "Gill",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_240294",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_240294",
+      "review_id": "rq_match_evt_20260710T122157Z_240294",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:18Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Gill (240294): alive -> missing_fate_unknown, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_254837": {
+      "bird_id": "254837",
+      "bird_name": "Dina",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_254837",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_254837",
+      "review_id": "rq_match_evt_20260710T122157Z_254837",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:24Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Dina (254837): alive -> dead, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_254840": {
+      "bird_id": "254840",
+      "bird_name": "Chance",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_254840",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_254840",
+      "review_id": "rq_match_evt_20260710T122157Z_254840",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:33Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Chance (254840): alive -> dead, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_254841": {
+      "bird_id": "254841",
+      "bird_name": "Bonnie",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_254841",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_254841",
+      "review_id": "rq_match_evt_20260710T122157Z_254841",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:29Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Bonnie (254841): alive -> missing_fate_unknown, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_254842": {
+      "bird_id": "254842",
+      "bird_name": "Dreich",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_254842",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_254842",
+      "review_id": "rq_match_evt_20260710T122157Z_254842",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:31Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Dreich (254842): alive -> missing_fate_unknown, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_254844": {
+      "bird_id": "254844",
+      "bird_name": "Margaret",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_254844",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_254844",
+      "review_id": "rq_match_evt_20260710T122157Z_254844",
+      "reviewed_at": "2026-07-10T12:23:12Z",
+      "reviewed_by": "Test Reviewer",
+      "reviewer_notes": "Verification pass - Margaret's last-known location intersects mapped blanket bog habitat, confirming for the public map.",
+      "status": "confirmed-located",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:26Z",
+          "by": "system",
+          "status": "pending"
+        },
+        {
+          "at": "2026-07-10T12:23:12Z",
+          "by": "Test Reviewer",
+          "status": "confirmed-located"
+        }
+      ],
+      "summary": "Margaret (254844): alive -> missing_fate_unknown, June 2026 update. intersects mapped moorland/upland habitat."
+    },
+    "rq_match_evt_20260710T122157Z_34345": {
+      "bird_id": "34345",
+      "bird_name": "Frank",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_34345",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_34345",
+      "review_id": "rq_match_evt_20260710T122157Z_34345",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:08Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Frank (34345): alive -> dead, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20260710T122157Z_34346": {
+      "bird_id": "34346",
+      "bird_name": "Sofia",
+      "confidence_tier": "no_habitat_match",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_34346",
+        "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20260710T122157Z_34346",
+      "review_id": "rq_match_evt_20260710T122157Z_34346",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T12:22:06Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Sofia (34346): alive -> dead, June 2026 update. no habitat-layer match."
+    }
+  },
+  "schema_version": 1
+}

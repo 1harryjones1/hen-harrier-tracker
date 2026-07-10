@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 25588,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 25588,
+        "Descrip": "Access Land - Combined Open Country, Registered Common Land and Section 16 Dedicated Land. MoD Byelaw, Section 28 Exclusions, Racecourses and Aerodromes and ECP Margin have been removed.",
+        "OC": "Yes",
+        "RCL": "No",
+        "S16": "No",
+        "Map_Area": 4,
+        "Version": "v49",
+        "GlobalID": "30b92881-bcd3-47a5-bbbd-fc6f61c07db5",
+        "Shape__Area": 2617720.9352264404,
+        "Shape__Length": 6698.857620863599
+      }
+    }
+  ]
+}

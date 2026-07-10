@@ -1,0 +1,649 @@
+{
+  "generated_at": "2026-07-10T12:22:33Z",
+  "matches": {
+    "match_evt_20260710T122157Z_213843": {
+      "bird_id": "213843",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_213843",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122209Z-213843-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122210Z-213843-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122210Z-213843-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_213843",
+      "queried_at": "2026-07-10T12:22:10Z",
+      "query_coordinates": {
+        "lat": 54.766352,
+        "lon": -3.075499,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_213851": {
+      "bird_id": "213851",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_213851",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122211Z-213851-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122212Z-213851-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122212Z-213851-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_213851",
+      "queried_at": "2026-07-10T12:22:12Z",
+      "query_coordinates": {
+        "lat": 48.32409,
+        "lon": -0.29012,
+        "precision_m": null
+      }
+    },
+    "match_evt_20260710T122157Z_213924": {
+      "bird_id": "213924",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "event_id": "evt_20260710T122157Z_213924",
+      "layer_results": [
+        {
+          "attributes": {
+            "AddHabs": "BLBOG, UFFSW",
+            "AreaHa": 843.51,
+            "FeatCodes": "",
+            "FeatDesc": "",
+            "GlobalID": "daaa3e79-3ea5-46eb-84b5-e4393108e8b3",
+            "HabCodes": "UHEAT",
+            "MainHabs": "Upland heathland",
+            "OBJECTID": 797671,
+            "OtherClass": "Annex1(H4010, H4030)",
+            "PrimSource": "North York Moors Digital NVC Survey 1997 (UHEAT)",
+            "Shape__Area": 8435072.167953491,
+            "Shape__Length": 36492.67614449031,
+            "UID": "PHID47956673_049965327",
+            "Version": "Sep_25"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122215Z-213924-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": {
+            "AREA_m2": 26557220,
+            "CHANGE_STATUS": "No recent Burn or Cut in vegetation",
+            "DATE_AFTER": "20250512",
+            "DATE_BEFORE": "20240917",
+            "GlobalID": "a13b5b86-fbeb-411c-9614-22ac831876cf",
+            "LOCATION": "North_York_Moors",
+            "OBJECTID": 17097,
+            "Shape__Area": 26539999.997299194,
+            "Shape__Length": 372459.9999996871
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122216Z-213924-moorland_change_map.json"
+        },
+        {
+          "attributes": {
+            "Descrip": "Access Land - Combined Open Country, Registered Common Land and Section 16 Dedicated Land. MoD Byelaw, Section 28 Exclusions, Racecourses and Aerodromes and ECP Margin have been removed.",
+            "GlobalID": "9afda340-d750-414a-83f2-c620bf3444f2",
+            "Map_Area": 5,
+            "OBJECTID": 39654,
+            "OC": "No",
+            "RCL": "Yes",
+            "S16": "No",
+            "Shape__Area": 16921816.556015015,
+            "Shape__Length": 35081.6127105344,
+            "Version": "v49"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122216Z-213924-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_213924",
+      "queried_at": "2026-07-10T12:22:16Z",
+      "query_coordinates": {
+        "lat": 54.386241,
+        "lon": -0.832766,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_232636": {
+      "bird_id": "232636",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "event_id": "evt_20260710T122157Z_232636",
+      "layer_results": [
+        {
+          "attributes": {
+            "AddHabs": "BLBOG, UFFSW",
+            "AreaHa": 125.13,
+            "FeatCodes": "",
+            "FeatDesc": "",
+            "GlobalID": "33043376-698a-4856-89df-9b71d1bb5f50",
+            "HabCodes": "UHEAT",
+            "MainHabs": "Upland heathland",
+            "OBJECTID": 793387,
+            "OtherClass": "Annex1(H4030, H7130), NVC(H9a, H9b)",
+            "PrimSource": "North Pennines Digital NVC Survey 2002 (UHEAT)",
+            "Shape__Area": 1251311.4875030518,
+            "Shape__Length": 5756.791181806366,
+            "UID": "PHID41497562_047070904",
+            "Version": "Sep_25"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122213Z-232636-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": {
+            "AREA_m2": 17862110,
+            "CHANGE_STATUS": "Cloud",
+            "DATE_AFTER": "20250512",
+            "DATE_BEFORE": "20240622",
+            "GlobalID": "94e4a634-5559-4ab9-8551-6aa5522e9481",
+            "LOCATION": "North_Pennines",
+            "OBJECTID": 1870,
+            "Shape__Area": 17848000.00039673,
+            "Shape__Length": 61059.99999991059
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122213Z-232636-moorland_change_map.json"
+        },
+        {
+          "attributes": {
+            "Descrip": "Access Land - Combined Open Country, Registered Common Land and Section 16 Dedicated Land. MoD Byelaw, Section 28 Exclusions, Racecourses and Aerodromes and ECP Margin have been removed.",
+            "GlobalID": "2ae9ce1c-e675-4c98-8641-1ede97436ce2",
+            "Map_Area": 4,
+            "OBJECTID": 36383,
+            "OC": "Yes",
+            "RCL": "No",
+            "S16": "No",
+            "Shape__Area": 5029074.874206543,
+            "Shape__Length": 20448.41857816942,
+            "Version": "v49"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122214Z-232636-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_232636",
+      "queried_at": "2026-07-10T12:22:14Z",
+      "query_coordinates": {
+        "lat": 54.131022,
+        "lon": -1.765824,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_232640": {
+      "bird_id": "232640",
+      "confidence_tier": "location_not_disclosed",
+      "event_id": "evt_20260710T122157Z_232640",
+      "layer_results": [],
+      "match_id": "match_evt_20260710T122157Z_232640",
+      "queried_at": "2026-07-10T12:22:12Z",
+      "query_coordinates": null
+    },
+    "match_evt_20260710T122157Z_240290": {
+      "bird_id": "240290",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_240290",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122219Z-240290-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122220Z-240290-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122220Z-240290-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_240290",
+      "queried_at": "2026-07-10T12:22:20Z",
+      "query_coordinates": {
+        "lat": 55.236444,
+        "lon": -3.493889,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_240291": {
+      "bird_id": "240291",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "event_id": "evt_20260710T122157Z_240291",
+      "layer_results": [
+        {
+          "attributes": {
+            "AddHabs": "BLBOG, PMGRP, UFFSW",
+            "AreaHa": 55.89,
+            "FeatCodes": "",
+            "FeatDesc": "",
+            "GlobalID": "44384bc3-ca61-48d8-aa59-17d582d4e19d",
+            "HabCodes": "UHEAT",
+            "MainHabs": "Upland heathland",
+            "OBJECTID": 790002,
+            "OtherClass": "",
+            "PrimSource": "OS MasterMap Heath Extract 2008 (UHEAT)",
+            "Shape__Area": 558884.4364929199,
+            "Shape__Length": 3928.953118457973,
+            "UID": "PHID40384383_059595929",
+            "Version": "Sep_25"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122221Z-240291-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": {
+            "AREA_m2": 51541.07,
+            "CHANGE_STATUS": "No recent Burn or Cut in vegetation",
+            "DATE_AFTER": "20250712",
+            "DATE_BEFORE": "20240918",
+            "GlobalID": "bd81c312-7a4f-4941-8505-159143d234ea",
+            "LOCATION": "Northumberland",
+            "OBJECTID": 25104,
+            "Shape__Area": 51500.000061035156,
+            "Shape__Length": 1579.9999999776483
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122222Z-240291-moorland_change_map.json"
+        },
+        {
+          "attributes": {
+            "Descrip": "Access Land - Combined Open Country, Registered Common Land and Section 16 Dedicated Land. MoD Byelaw, Section 28 Exclusions, Racecourses and Aerodromes and ECP Margin have been removed.",
+            "GlobalID": "68edb308-db45-4d05-a0ec-8cf961ec2950",
+            "Map_Area": 5,
+            "OBJECTID": 37680,
+            "OC": "Yes",
+            "RCL": "No",
+            "S16": "No",
+            "Shape__Area": 1831592.5860443115,
+            "Shape__Length": 6844.810191680605,
+            "Version": "v49"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122222Z-240291-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_240291",
+      "queried_at": "2026-07-10T12:22:22Z",
+      "query_coordinates": {
+        "lat": 55.259056,
+        "lon": -1.941756,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_240294": {
+      "bird_id": "240294",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_240294",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122217Z-240294-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122217Z-240294-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122218Z-240294-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_240294",
+      "queried_at": "2026-07-10T12:22:18Z",
+      "query_coordinates": {
+        "lat": 55.599981,
+        "lon": -2.890288,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_254837": {
+      "bird_id": "254837",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_254837",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122223Z-254837-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122224Z-254837-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122224Z-254837-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_254837",
+      "queried_at": "2026-07-10T12:22:24Z",
+      "query_coordinates": {
+        "lat": 55.749647,
+        "lon": -2.476301,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_254840": {
+      "bird_id": "254840",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_254840",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122232Z-254840-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122232Z-254840-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122233Z-254840-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_254840",
+      "queried_at": "2026-07-10T12:22:33Z",
+      "query_coordinates": {
+        "lat": 54.504889,
+        "lon": -2.699525,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_254841": {
+      "bird_id": "254841",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_254841",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122227Z-254841-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122228Z-254841-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122229Z-254841-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_254841",
+      "queried_at": "2026-07-10T12:22:29Z",
+      "query_coordinates": {
+        "lat": 55.807216,
+        "lon": -2.9349,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_254842": {
+      "bird_id": "254842",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_254842",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122230Z-254842-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122230Z-254842-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122231Z-254842-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_254842",
+      "queried_at": "2026-07-10T12:22:31Z",
+      "query_coordinates": {
+        "lat": 55.298061,
+        "lon": -3.850614,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_254844": {
+      "bird_id": "254844",
+      "confidence_tier": "within_mapped_moorland_habitat",
+      "event_id": "evt_20260710T122157Z_254844",
+      "layer_results": [
+        {
+          "attributes": {
+            "AddHabs": "UFFSW, UHEAT",
+            "AreaHa": 33.12,
+            "FeatCodes": "",
+            "FeatDesc": "",
+            "GlobalID": "895c1129-a1ca-43a5-8a9e-0258d65cddee",
+            "HabCodes": "BLBOG",
+            "MainHabs": "Blanket bog",
+            "OBJECTID": 8806,
+            "OtherClass": "Annex1(H4030, H7130), NVC(H9a, M19)",
+            "PrimSource": "North Pennines Digital NVC Survey 2002 (BLBOG)",
+            "Shape__Area": 331197.3662261963,
+            "Shape__Length": 3176.629682702922,
+            "UID": "PHID38757607_054962698",
+            "Version": "Sep_25"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122225Z-254844-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": {
+            "AREA_m2": 31485200,
+            "CHANGE_STATUS": "No recent Burn or Cut in vegetation",
+            "DATE_AFTER": "20250512",
+            "DATE_BEFORE": "20240622",
+            "GlobalID": "f10db51b-543d-492f-b466-1cf23ae149a7",
+            "LOCATION": "North_Pennines",
+            "OBJECTID": 4511,
+            "Shape__Area": 31460200.000793457,
+            "Shape__Length": 489259.9999991767
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122226Z-254844-moorland_change_map.json"
+        },
+        {
+          "attributes": {
+            "Descrip": "Access Land - Combined Open Country, Registered Common Land and Section 16 Dedicated Land. MoD Byelaw, Section 28 Exclusions, Racecourses and Aerodromes and ECP Margin have been removed.",
+            "GlobalID": "30b92881-bcd3-47a5-bbbd-fc6f61c07db5",
+            "Map_Area": 4,
+            "OBJECTID": 25588,
+            "OC": "Yes",
+            "RCL": "No",
+            "S16": "No",
+            "Shape__Area": 2617720.9352264404,
+            "Shape__Length": 6698.857620863599,
+            "Version": "v49"
+          },
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": true,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122226Z-254844-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_254844",
+      "queried_at": "2026-07-10T12:22:26Z",
+      "query_coordinates": {
+        "lat": 54.841964,
+        "lon": -2.191493,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_34345": {
+      "bird_id": "34345",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_34345",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122207Z-34345-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122208Z-34345-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122208Z-34345-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_34345",
+      "queried_at": "2026-07-10T12:22:08Z",
+      "query_coordinates": {
+        "lat": 53.740579,
+        "lon": -0.048619,
+        "precision_m": 100
+      }
+    },
+    "match_evt_20260710T122157Z_34346": {
+      "bird_id": "34346",
+      "confidence_tier": "no_habitat_match",
+      "event_id": "evt_20260710T122157Z_34346",
+      "layer_results": [
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Priority_Habitats_Inventory_England/FeatureServer",
+          "layer": "priority_habitats_inventory",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122205Z-34346-priority_habitats_inventory.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer",
+          "layer": "moorland_change_map",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122206Z-34346-moorland_change_map.json"
+        },
+        {
+          "attributes": null,
+          "feature_server_url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer",
+          "layer": "crow_act_access_layer",
+          "matched": false,
+          "raw_snapshot_path": "data/raw/habitat_queries/20260710T122206Z-34346-crow_act_access_layer.json"
+        }
+      ],
+      "match_id": "match_evt_20260710T122157Z_34346",
+      "queried_at": "2026-07-10T12:22:06Z",
+      "query_coordinates": {
+        "lat": 55.047672,
+        "lon": -2.843558,
+        "precision_m": 100
+      }
+    }
+  },
+  "schema_version": 1
+}

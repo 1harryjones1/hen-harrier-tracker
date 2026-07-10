@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 790002,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 790002,
+        "MainHabs": "Upland heathland",
+        "HabCodes": "UHEAT",
+        "FeatDesc": "",
+        "FeatCodes": "",
+        "OtherClass": "",
+        "AddHabs": "BLBOG, PMGRP, UFFSW",
+        "PrimSource": "OS MasterMap Heath Extract 2008 (UHEAT)",
+        "AreaHa": 55.89,
+        "Version": "Sep_25",
+        "UID": "PHID40384383_059595929",
+        "GlobalID": "44384bc3-ca61-48d8-aa59-17d582d4e19d",
+        "Shape__Area": 558884.4364929199,
+        "Shape__Length": 3928.953118457973
+      }
+    }
+  ]
+}

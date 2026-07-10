@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 793387,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 793387,
+        "MainHabs": "Upland heathland",
+        "HabCodes": "UHEAT",
+        "FeatDesc": "",
+        "FeatCodes": "",
+        "OtherClass": "Annex1(H4030, H7130), NVC(H9a, H9b)",
+        "AddHabs": "BLBOG, UFFSW",
+        "PrimSource": "North Pennines Digital NVC Survey 2002 (UHEAT)",
+        "AreaHa": 125.13,
+        "Version": "Sep_25",
+        "UID": "PHID41497562_047070904",
+        "GlobalID": "33043376-698a-4856-89df-9b71d1bb5f50",
+        "Shape__Area": 1251311.4875030518,
+        "Shape__Length": 5756.791181806366
+      }
+    }
+  ]
+}

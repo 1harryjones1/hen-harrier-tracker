@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1870,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 1870,
+        "LOCATION": "North_Pennines",
+        "CHANGE_STATUS": "Cloud",
+        "DATE_AFTER": "20250512",
+        "DATE_BEFORE": "20240622",
+        "AREA_m2": 17862110,
+        "GlobalID": "94e4a634-5559-4ab9-8551-6aa5522e9481",
+        "Shape__Area": 17848000.00039673,
+        "Shape__Length": 61059.99999991059
+      }
+    }
+  ]
+}

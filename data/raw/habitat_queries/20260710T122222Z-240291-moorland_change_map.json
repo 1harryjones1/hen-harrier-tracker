@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 25104,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 25104,
+        "LOCATION": "Northumberland",
+        "CHANGE_STATUS": "No recent Burn or Cut in vegetation",
+        "DATE_AFTER": "20250712",
+        "DATE_BEFORE": "20240918",
+        "AREA_m2": 51541.07,
+        "GlobalID": "bd81c312-7a4f-4941-8505-159143d234ea",
+        "Shape__Area": 51500.000061035156,
+        "Shape__Length": 1579.9999999776483
+      }
+    }
+  ]
+}

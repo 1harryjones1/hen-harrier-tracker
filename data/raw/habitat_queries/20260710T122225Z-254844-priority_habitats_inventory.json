@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 8806,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 8806,
+        "MainHabs": "Blanket bog",
+        "HabCodes": "BLBOG",
+        "FeatDesc": "",
+        "FeatCodes": "",
+        "OtherClass": "Annex1(H4030, H7130), NVC(H9a, M19)",
+        "AddHabs": "UFFSW, UHEAT",
+        "PrimSource": "North Pennines Digital NVC Survey 2002 (BLBOG)",
+        "AreaHa": 33.12,
+        "Version": "Sep_25",
+        "UID": "PHID38757607_054962698",
+        "GlobalID": "895c1129-a1ca-43a5-8a9e-0258d65cddee",
+        "Shape__Area": 331197.3662261963,
+        "Shape__Length": 3176.629682702922
+      }
+    }
+  ]
+}

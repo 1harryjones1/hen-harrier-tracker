@@ -2410,18 +2410,14 @@
     },
     "263531": {
       "bird_id": "263531",
-      "coordinates": {
-        "lat": 54.455525,
-        "lon": -8.094666,
-        "precision_m": 100
-      },
+      "coordinates": null,
       "date_fitted": "2025-07-03",
       "date_fitted_raw": "03/07/2025",
       "date_last_contact": "2025-10-13",
       "date_last_contact_is_exact_date": true,
       "date_last_contact_raw": "13/10/2025",
       "location_raw": "NV052238",
-      "location_status": "grid_reference",
+      "location_status": "unparseable",
       "location_text": "Northumberland",
       "name": "Murphy",
       "nest_area": "Northumberland 3",
@@ -3318,7 +3314,7 @@
       "tag_type": "Lotek"
     }
   },
-  "generated_at": "2026-07-10T12:08:27Z",
+  "generated_at": "2026-07-10T12:21:57Z",
   "schema_version": 1,
   "source": {
     "fetched_at": "2026-07-10T12:01:19Z",

@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 17097,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 17097,
+        "LOCATION": "North_York_Moors",
+        "CHANGE_STATUS": "No recent Burn or Cut in vegetation",
+        "DATE_AFTER": "20250512",
+        "DATE_BEFORE": "20240917",
+        "AREA_m2": 26557220,
+        "GlobalID": "a13b5b86-fbeb-411c-9614-22ac831876cf",
+        "Shape__Area": 26539999.997299194,
+        "Shape__Length": 372459.9999996871
+      }
+    }
+  ]
+}
