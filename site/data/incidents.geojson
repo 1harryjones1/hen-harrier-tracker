@@ -1,0 +1,2904 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          -2.558064,
+          55.226342
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "117313",
+        "bird_name": "Grainne",
+        "confirmed_at": null,
+        "event_date": "2018-08-14",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Kielder",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.981634,
+          55.189521
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "117314",
+        "bird_name": "Hattie",
+        "confirmed_at": null,
+        "event_date": "2017-12-02",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Langholm",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "161143",
+        "bird_name": "Dru",
+        "confirmed_at": null,
+        "event_date": "2022-06-13",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.574598,
+          51.416626
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "161144",
+        "bird_name": "Tom",
+        "confirmed_at": null,
+        "event_date": "2018-10-23",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "South Wales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.047322,
+          54.058441
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "161962",
+        "bird_name": "John",
+        "confirmed_at": null,
+        "event_date": "2017-10-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "162148",
+        "bird_name": "Sorrel",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "162150a",
+        "bird_name": "Fortune",
+        "confirmed_at": null,
+        "event_date": "2020-09-16",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.354784,
+          54.284411
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "183701",
+        "bird_name": "R1-M1-19",
+        "confirmed_at": null,
+        "event_date": "2020-05-21",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.363153,
+          54.362574
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "183703",
+        "bird_name": "R1-F1-19",
+        "confirmed_at": null,
+        "event_date": "2020-04-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.124563,
+          54.344184
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "183704",
+        "bird_name": "R1-M2-19",
+        "confirmed_at": null,
+        "event_date": "2019-09-19",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.684671,
+          54.338445
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201117",
+        "bird_name": "Asta",
+        "confirmed_at": null,
+        "event_date": "2021-04-21",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Arrathorne, Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "201118",
+        "bird_name": "N/A",
+        "confirmed_at": null,
+        "event_date": "2020-07-09",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.89029,
+          54.517648
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201118a",
+        "bird_name": "R3-F1-23",
+        "confirmed_at": null,
+        "event_date": "2023-08-11",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "201119",
+        "bird_name": "Solo",
+        "confirmed_at": null,
+        "event_date": "2020-08-14",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Lancashire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -19.81996,
+          57.74904
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201120",
+        "bird_name": "Martin",
+        "confirmed_at": null,
+        "event_date": "2021-03-07",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Atlantic Ocean",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.317325,
+          54.406741
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201121",
+        "bird_name": "Free",
+        "confirmed_at": null,
+        "event_date": "2022-04-12",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.377525,
+          54.920608
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201122",
+        "bird_name": "Susie",
+        "confirmed_at": null,
+        "event_date": "2024-02-12",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.51336,
+          41.46132
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201123",
+        "bird_name": "Ned",
+        "confirmed_at": null,
+        "event_date": "2022-02-11",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Alconadilla, Spain",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.947567,
+          53.199166
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201124",
+        "bird_name": "Watson",
+        "confirmed_at": null,
+        "event_date": "2020-10-18",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Staffs Moors",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.13904,
+          54.531098
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201124a",
+        "bird_name": "Rubi",
+        "confirmed_at": null,
+        "event_date": "2023-07-06",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -8.49918,
+          43.34855
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201125",
+        "bird_name": "Ingerid",
+        "confirmed_at": null,
+        "event_date": "2021-09-22",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Ranobre, Spain",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "201126",
+        "bird_name": "N/A",
+        "confirmed_at": null,
+        "event_date": "2020-07-06",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.773244,
+          50.730997
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "201126a",
+        "bird_name": "Lagertha",
+        "confirmed_at": null,
+        "event_date": "2020-12-19",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Christchurch",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.064708,
+          54.430507
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "203003",
+        "bird_name": "R2-F1-20",
+        "confirmed_at": null,
+        "event_date": "2021-11-15",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.038745,
+          54.684845
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "203004",
+        "bird_name": "R1-M2-20",
+        "confirmed_at": null,
+        "event_date": "2023-06-12",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "203005",
+        "bird_name": "R2-F3-20",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.075499,
+          54.766352
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213843",
+        "bird_name": "Pete",
+        "confirmed_at": null,
+        "event_date": "2025-05-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.127852,
+          54.412482
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213844",
+        "bird_name": "Harvey",
+        "confirmed_at": null,
+        "event_date": "2022-05-14",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "213845",
+        "bird_name": "Lydia",
+        "confirmed_at": null,
+        "event_date": "2022-03-22",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.668289,
+          54.008958
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213846",
+        "bird_name": "Amelia",
+        "confirmed_at": null,
+        "event_date": "2022-01-26",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Bowland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.956321,
+          55.834906
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213847",
+        "bird_name": "Percy",
+        "confirmed_at": null,
+        "event_date": "2021-11-19",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Edinburgh",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.311906,
+          54.301605
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213847a",
+        "bird_name": "Rhys",
+        "confirmed_at": null,
+        "event_date": "2023-09-15",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.949434,
+          54.155505
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213848",
+        "bird_name": "Jasmine",
+        "confirmed_at": null,
+        "event_date": "2021-12-12",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.280556,
+          54.269143
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213849",
+        "bird_name": "Val",
+        "confirmed_at": null,
+        "event_date": "2021-11-19",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.483972,
+          54.035906
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213849a",
+        "bird_name": "Ken",
+        "confirmed_at": null,
+        "event_date": "2024-04-24",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Bowland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.641722,
+          55.149549
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213850",
+        "bird_name": "Josephine",
+        "confirmed_at": null,
+        "event_date": "2021-08-14",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.29012,
+          48.32409
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213851",
+        "bird_name": "Rodney",
+        "confirmed_at": null,
+        "event_date": "2025-03-08",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Loire Valley, France",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.101487,
+          54.963388
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213852",
+        "bird_name": "Ethel",
+        "confirmed_at": null,
+        "event_date": "2022-01-09",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.967146,
+          54.994878
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213918",
+        "bird_name": "R2-F1-21",
+        "confirmed_at": null,
+        "event_date": "2021-09-24",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.35892,
+          54.60405
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213919",
+        "bird_name": "R1-F1-21",
+        "confirmed_at": null,
+        "event_date": "2022-10-19",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "North Sea",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "213920",
+        "bird_name": "R2-M2-21",
+        "confirmed_at": null,
+        "event_date": "2021-10-27",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.323509,
+          54.40942
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213920a",
+        "bird_name": "R3-M2-22",
+        "confirmed_at": null,
+        "event_date": "2022-10-05",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.558725,
+          54.752347
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213921",
+        "bird_name": "R2-M3-21",
+        "confirmed_at": null,
+        "event_date": "2021-10-27",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.455446,
+          54.77476
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213921a",
+        "bird_name": "R3-F1-22",
+        "confirmed_at": null,
+        "event_date": "2022-12-14",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.375759,
+          54.39489
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213922",
+        "bird_name": "R2-M1-21",
+        "confirmed_at": null,
+        "event_date": "2023-06-11",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.024653,
+          54.469166
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213923",
+        "bird_name": "R2-F1-23",
+        "confirmed_at": null,
+        "event_date": "2024-06-25",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.832766,
+          54.386241
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213924",
+        "bird_name": "R3-F2-22",
+        "confirmed_at": null,
+        "event_date": "2025-02-03",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North York Moors",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.531712,
+          53.671065
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213925",
+        "bird_name": "R3-M1-22",
+        "confirmed_at": null,
+        "event_date": "2022-08-23",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Humber",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.996887,
+          54.3784
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213925a",
+        "bird_name": "R4-F1-23",
+        "confirmed_at": null,
+        "event_date": "2023-10-04",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.23883,
+          54.419503
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213926",
+        "bird_name": "R2-M1-22",
+        "confirmed_at": null,
+        "event_date": "2023-04-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -4.136596,
+          51.131635
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213927a",
+        "bird_name": "R2-M1-23",
+        "confirmed_at": null,
+        "event_date": "2024-03-07",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Devon",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.935624,
+          54.174372
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213928",
+        "bird_name": "R2-M2-23",
+        "confirmed_at": null,
+        "event_date": "2024-05-17",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.17424,
+          54.451068
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213929",
+        "bird_name": "R2-F2-23",
+        "confirmed_at": null,
+        "event_date": "2023-09-24",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "213930",
+        "bird_name": "R4-M1-23",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.236276,
+          54.24336
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213931",
+        "bird_name": "R2-F1-22",
+        "confirmed_at": null,
+        "event_date": "2022-12-15",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorks Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.369004,
+          55.012294
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "213932",
+        "bird_name": "R2-M3-22",
+        "confirmed_at": null,
+        "event_date": "2023-05-31",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.765824,
+          54.131022
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "232636",
+        "bird_name": "R1-F4-22",
+        "confirmed_at": null,
+        "event_date": "2025-04-02",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.302666,
+          54.298932
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "232637",
+        "bird_name": "R1-M1-22",
+        "confirmed_at": null,
+        "event_date": "2022-08-17",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "232638",
+        "bird_name": "R1-F2-22",
+        "confirmed_at": null,
+        "event_date": "2023-04-29",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.274346,
+          54.430212
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "232639",
+        "bird_name": "R1-F3-22",
+        "confirmed_at": null,
+        "event_date": "2023-03-30",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "232640",
+        "bird_name": "R1-F1-22",
+        "confirmed_at": null,
+        "event_date": "2023-04-30",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "234074",
+        "bird_name": "Bernie",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "South Lanarkshire, Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "234075",
+        "bird_name": "Jenny",
+        "confirmed_at": null,
+        "event_date": "2022-08-08",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "234076",
+        "bird_name": "Reuben",
+        "confirmed_at": null,
+        "event_date": "2022-10-24",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Peak District",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "234077",
+        "bird_name": "Craig",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Peak District",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.260992,
+          54.269372
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "234078",
+        "bird_name": "Nicola",
+        "confirmed_at": null,
+        "event_date": "2023-04-03",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.57446,
+          54.065167
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "234079",
+        "bird_name": "Penelope",
+        "confirmed_at": null,
+        "event_date": "2024-03-03",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Bowland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.493889,
+          55.236444
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "240290",
+        "bird_name": "Cillian",
+        "confirmed_at": null,
+        "event_date": "2023-10-14",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Southwest Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.941756,
+          55.259056
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "240291",
+        "bird_name": "Baldur",
+        "confirmed_at": null,
+        "event_date": "2024-10-15",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -4.682065,
+          54.18856
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "240292",
+        "bird_name": "Hazel",
+        "confirmed_at": null,
+        "event_date": "2023-11-15",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Isle of Man",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.307497,
+          54.328578
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "240293",
+        "bird_name": "Hope",
+        "confirmed_at": null,
+        "event_date": "2023-09-26",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.890288,
+          55.599981
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "240294",
+        "bird_name": "Gill",
+        "confirmed_at": null,
+        "event_date": "2025-04-10",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Southern Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.476301,
+          55.749647
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254837",
+        "bird_name": "Dina",
+        "confirmed_at": null,
+        "event_date": "2025-01-12",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.136755,
+          55.451472
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254838",
+        "bird_name": "Mary",
+        "confirmed_at": null,
+        "event_date": "2025-08-07",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Scottish Borders",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "254839",
+        "bird_name": "",
+        "confirmed_at": null,
+        "event_date": "2024-08-05",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.699525,
+          54.504889
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254840",
+        "bird_name": "Chance",
+        "confirmed_at": null,
+        "event_date": "2024-08-08",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.9349,
+          55.807216
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254841",
+        "bird_name": "Bonnie",
+        "confirmed_at": null,
+        "event_date": "2025-04-04",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.850614,
+          55.298061
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254842",
+        "bird_name": "Dreich",
+        "confirmed_at": null,
+        "event_date": "2024-10-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.278306,
+          55.237186
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254843",
+        "bird_name": "",
+        "confirmed_at": null,
+        "event_date": "2024-07-29",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.191493,
+          54.841964
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "254844",
+        "bird_name": "Margaret",
+        "confirmed_at": "2026-07-10T12:23:12Z",
+        "event_date": "2024-10-19",
+        "habitat_context": "Within mapped habitat: Blanket bog; recorded moorland-change area (North_Pennines); open-access moorland/heath/down (CRoW Act 2000)",
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "confirmed-located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "263529",
+        "bird_name": "Marilyn",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "263530",
+        "bird_name": "Meghan",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "263531",
+        "bird_name": "Murphy",
+        "confirmed_at": null,
+        "event_date": "2025-10-13",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -4.147489,
+          55.428018
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "263532",
+        "bird_name": "Patricia",
+        "confirmed_at": null,
+        "event_date": "2026-01-14",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Ayrshire, Scotland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "281714",
+        "bird_name": "Murray",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "281715",
+        "bird_name": "Moira",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "281716",
+        "bird_name": "Melissa",
+        "confirmed_at": null,
+        "event_date": "2026-06-01",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "alive",
+        "status_label": "Alive, transmitting"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.803189,
+          55.599463
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "281718",
+        "bird_name": "Maria",
+        "confirmed_at": null,
+        "event_date": "2025-09-09",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.231287,
+          54.448277
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "34342",
+        "bird_name": "Mabel",
+        "confirmed_at": null,
+        "event_date": "2018-10-02",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -4.625096,
+          50.518158
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "34343",
+        "bird_name": "Barney",
+        "confirmed_at": null,
+        "event_date": "2018-11-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Bodmin Moor",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.048619,
+          53.740579
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "34345",
+        "bird_name": "Frank",
+        "confirmed_at": null,
+        "event_date": null,
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Holderness",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.843558,
+          55.047672
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "34346",
+        "bird_name": "Sofia",
+        "confirmed_at": null,
+        "event_date": "2024-10-03",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.420772,
+          54.729053
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55144",
+        "bird_name": "R2-F2-20",
+        "confirmed_at": null,
+        "event_date": "2023-06-29",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.481015,
+          53.646738
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55145",
+        "bird_name": "Jasper",
+        "confirmed_at": null,
+        "event_date": "2019-10-26",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Lancashire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.128274,
+          54.053888
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55145a",
+        "bird_name": "R1-M1-21",
+        "confirmed_at": null,
+        "event_date": "2022-12-01",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.721569,
+          54.495664
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55146",
+        "bird_name": "Jimmy",
+        "confirmed_at": null,
+        "event_date": "2020-01-12",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North York Moors",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.058765,
+          54.585084
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55146a",
+        "bird_name": "R2-M1-20",
+        "confirmed_at": null,
+        "event_date": "2023-12-07",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -22.32531,
+          48.41873
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55147",
+        "bird_name": "R1-M3-19",
+        "confirmed_at": null,
+        "event_date": "2020-05-05",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Atlantic Ocean",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.075605,
+          54.488017
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55149",
+        "bird_name": "R1-M4-19",
+        "confirmed_at": null,
+        "event_date": "2019-09-09",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.843022,
+          54.35583
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55152",
+        "bird_name": "R1-M4-20",
+        "confirmed_at": null,
+        "event_date": "2020-09-20",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Pennines",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.102046,
+          54.567981
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55153",
+        "bird_name": "R1-M3-20",
+        "confirmed_at": null,
+        "event_date": "2023-10-04",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.798242,
+          54.388117
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55154",
+        "bird_name": "R1-M1-20",
+        "confirmed_at": null,
+        "event_date": "2020-10-20",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "North Yorkshire",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.140508,
+          54.508629
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55154a",
+        "bird_name": "R1-F1-23",
+        "confirmed_at": null,
+        "event_date": "2023-07-23",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "County Durham",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.793321,
+          54.140959
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55155",
+        "bird_name": "R1-M2-21",
+        "confirmed_at": null,
+        "event_date": "2022-03-06",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.50547,
+          55.169959
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "55155a",
+        "bird_name": "R1-F2-23",
+        "confirmed_at": null,
+        "event_date": "2023-08-24",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.090363,
+          54.180646
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "57255",
+        "bird_name": "Kelly",
+        "confirmed_at": null,
+        "event_date": "2021-04-04",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "57265",
+        "bird_name": "Colin",
+        "confirmed_at": null,
+        "event_date": "2021-04-17",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.432692,
+          55.262795
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "57266",
+        "bird_name": "Alex",
+        "confirmed_at": null,
+        "event_date": "2019-08-15",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.355979,
+          54.42281
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "57266#row24",
+        "bird_name": "Harriet",
+        "confirmed_at": null,
+        "event_date": "2020-07-25",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Cumbria",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.263539,
+          54.42754
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "57272",
+        "bird_name": "Harold",
+        "confirmed_at": null,
+        "event_date": "2020-09-19",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": 100,
+        "publish_tier": "located",
+        "region_text": "Yorkshire Dales",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.41911,
+          49.48632
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "bird_id": "57273",
+        "bird_name": "Teddy",
+        "confirmed_at": null,
+        "event_date": "2019-10-27",
+        "habitat_context": null,
+        "location_disclosed": true,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Le Havre France",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "57278",
+        "bird_name": "Rosie",
+        "confirmed_at": null,
+        "event_date": "2020-03-23",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "missing_fate_unknown",
+        "status_label": "Missing, fate unknown"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "properties": {
+        "bird_id": "57280",
+        "bird_name": "N/A",
+        "confirmed_at": null,
+        "event_date": "2019-07-19",
+        "habitat_context": null,
+        "location_disclosed": false,
+        "location_precision_m": null,
+        "publish_tier": "located",
+        "region_text": "Northumberland",
+        "source_name": "Natural England hen harrier tracking update",
+        "source_update_label": "June 2026 update",
+        "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods",
+        "species": "hen_harrier",
+        "status": "dead",
+        "status_label": "Dead"
+      },
+      "type": "Feature"
+    }
+  ],
+  "generated_at": "2026-07-10T12:26:02Z",
+  "properties": {
+    "schema_version": 1
+  },
+  "type": "FeatureCollection"
+}
