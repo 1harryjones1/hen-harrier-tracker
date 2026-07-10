@@ -5,6 +5,12 @@ name: Build and deploy site
 # self-healing even if a commit only touched data/review/** (e.g. a human
 # flipping a review status without remembering to re-run build_site.py
 # locally first).
+#
+# Also callable directly (workflow_call) - a push made with the default
+# GITHUB_TOKEN (as the fetch workflows' own commits are) does not cascade
+# to trigger other workflows via the `push` event, by GitHub's own design
+# (an anti-infinite-loop safeguard). So the fetch workflows call this one
+# explicitly as a job rather than relying on their commit to trigger it.
 
 on:
   push:
@@ -13,6 +19,7 @@ on:
       - "data/**"
       - "site/**"
   workflow_dispatch: {}
+  workflow_call: {}
 
 concurrency:
   group: pages
