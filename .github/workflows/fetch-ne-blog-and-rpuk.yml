@@ -1,0 +1,52 @@
+name: Fetch NE blog and RPUK RSS
+
+# Daily - these are the fast/unofficial "unconfirmed reports" feed (doc §2),
+# often days to weeks ahead of NE's own table update.
+
+on:
+  schedule:
+    - cron: "43 5 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: fetch-ne-blog-and-rpuk
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r pipeline/requirements.txt
+
+      - name: Fetch feeds and rebuild published data
+        run: |
+          python pipeline/fetch_ne_blog.py
+          python pipeline/fetch_rpuk_rss.py
+          python pipeline/build_site.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ site/data/
+          git diff --staged --quiet || git commit -m "Automated: NE blog + RPUK RSS poll $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
+
+  alert-on-failure:
+    needs: fetch
+    if: failure()
+    uses: ./.github/workflows/alert-on-failure.yml
+    with:
+      workflow_name: "Fetch NE blog and RPUK RSS"
+      run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

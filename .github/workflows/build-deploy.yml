@@ -1,0 +1,54 @@
+name: Build and deploy site
+
+# Triggers broadly on any data change (not just data/published/**) and
+# re-runs build_site.py itself before deploying - this makes the deploy
+# self-healing even if a commit only touched data/review/** (e.g. a human
+# flipping a review status without remembering to re-run build_site.py
+# locally first).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "site/**"
+  workflow_dispatch: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r pipeline/requirements.txt
+
+      - name: Build published data + site
+        run: python pipeline/build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

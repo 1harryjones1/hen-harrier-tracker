@@ -1,0 +1,57 @@
+name: Alert on pipeline failure
+
+# Reusable workflow (doc §9: "fail loudly, not silently"). Called by each
+# fetch workflow's own failure-handling job. Opens a GitHub Issue labeled
+# pipeline-failure, or comments on the existing one for the same workflow
+# rather than spamming a new Issue on every recurring failure.
+
+on:
+  workflow_call:
+    inputs:
+      workflow_name:
+        required: true
+        type: string
+      run_url:
+        required: true
+        type: string
+
+permissions:
+  issues: write
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Pipeline failure: ${{ inputs.workflow_name }}`;
+            const runUrl = "${{ inputs.run_url }}";
+            const label = "pipeline-failure";
+
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: label,
+            });
+
+            const match = existing.data.find((issue) => issue.title === title);
+            const body = `Failed run: ${runUrl}\n\nSee the workflow log for details. The last-known-good data is left in place - the site does not go blank on a failed fetch.`;
+
+            if (match) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: match.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: [label],
+              });
+            }
