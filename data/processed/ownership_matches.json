@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-07-10T18:03:42Z",
+  "matches": {
+    "ownership_match_evt_20260710T122157Z_213924": {
+      "chain": [
+        {
+          "attributes": {
+            "code": "E06000065",
+            "name": "North Yorkshire"
+          },
+          "matched": true,
+          "raw_snapshot_path": "data/raw/ownership_queries/20260710T180340Z-213924-la.json",
+          "step": "local_authority_resolution"
+        },
+        {
+          "attributes": null,
+          "error": "No INSPIRE GML file configured for local authority 'E06000065' - add it to L:\\Arc Downloads\\ClaudeCode\\Raptors\\pipeline\\config\\local_authority_gml_files.json (download the file from use-land-property-data.service.gov.uk/datasets/inspire/download and record its URL).",
+          "matched": false,
+          "step": "inspire_title_lookup"
+        }
+      ],
+      "confidence_tier": "local_authority_gml_not_configured",
+      "event_id": "evt_20260710T122157Z_213924",
+      "match_id": "ownership_match_evt_20260710T122157Z_213924",
+      "moorland_match_id": "match_evt_20260710T122157Z_213924",
+      "queried_at": "2026-07-10T18:03:41Z",
+      "query_coordinates": {
+        "lat": 54.386241,
+        "lon": -0.832766,
+        "precision_m": 100
+      }
+    },
+    "ownership_match_evt_20260710T122157Z_232636": {
+      "chain": [
+        {
+          "attributes": {
+            "code": "E06000065",
+            "name": "North Yorkshire"
+          },
+          "matched": true,
+          "raw_snapshot_path": "data/raw/ownership_queries/20260710T180341Z-232636-la.json",
+          "step": "local_authority_resolution"
+        },
+        {
+          "attributes": null,
+          "error": "No INSPIRE GML file configured for local authority 'E06000065' - add it to L:\\Arc Downloads\\ClaudeCode\\Raptors\\pipeline\\config\\local_authority_gml_files.json (download the file from use-land-property-data.service.gov.uk/datasets/inspire/download and record its URL).",
+          "matched": false,
+          "step": "inspire_title_lookup"
+        }
+      ],
+      "confidence_tier": "local_authority_gml_not_configured",
+      "event_id": "evt_20260710T122157Z_232636",
+      "match_id": "ownership_match_evt_20260710T122157Z_232636",
+      "moorland_match_id": "match_evt_20260710T122157Z_232636",
+      "queried_at": "2026-07-10T18:03:41Z",
+      "query_coordinates": {
+        "lat": 54.131022,
+        "lon": -1.765824,
+        "precision_m": 100
+      }
+    },
+    "ownership_match_evt_20260710T122157Z_240291": {
+      "chain": [
+        {
+          "attributes": {
+            "code": "E06000057",
+            "name": "Northumberland"
+          },
+          "matched": true,
+          "raw_snapshot_path": "data/raw/ownership_queries/20260710T180342Z-240291-la.json",
+          "step": "local_authority_resolution"
+        },
+        {
+          "attributes": null,
+          "error": "No INSPIRE GML file configured for local authority 'E06000057' - add it to L:\\Arc Downloads\\ClaudeCode\\Raptors\\pipeline\\config\\local_authority_gml_files.json (download the file from use-land-property-data.service.gov.uk/datasets/inspire/download and record its URL).",
+          "matched": false,
+          "step": "inspire_title_lookup"
+        }
+      ],
+      "confidence_tier": "local_authority_gml_not_configured",
+      "event_id": "evt_20260710T122157Z_240291",
+      "match_id": "ownership_match_evt_20260710T122157Z_240291",
+      "moorland_match_id": "match_evt_20260710T122157Z_240291",
+      "queried_at": "2026-07-10T18:03:42Z",
+      "query_coordinates": {
+        "lat": 55.259056,
+        "lon": -1.941756,
+        "precision_m": 100
+      }
+    },
+    "ownership_match_evt_20260710T122157Z_254844": {
+      "chain": [
+        {
+          "attributes": {
+            "code": "E06000057",
+            "name": "Northumberland"
+          },
+          "matched": true,
+          "raw_snapshot_path": "data/raw/ownership_queries/20260710T180342Z-254844-la.json",
+          "step": "local_authority_resolution"
+        },
+        {
+          "attributes": null,
+          "error": "No INSPIRE GML file configured for local authority 'E06000057' - add it to L:\\Arc Downloads\\ClaudeCode\\Raptors\\pipeline\\config\\local_authority_gml_files.json (download the file from use-land-property-data.service.gov.uk/datasets/inspire/download and record its URL).",
+          "matched": false,
+          "step": "inspire_title_lookup"
+        }
+      ],
+      "confidence_tier": "local_authority_gml_not_configured",
+      "event_id": "evt_20260710T122157Z_254844",
+      "match_id": "ownership_match_evt_20260710T122157Z_254844",
+      "moorland_match_id": "match_evt_20260710T122157Z_254844",
+      "queried_at": "2026-07-10T18:03:42Z",
+      "query_coordinates": {
+        "lat": 54.841964,
+        "lon": -2.191493,
+        "precision_m": 100
+      }
+    }
+  },
+  "schema_version": 1
+}

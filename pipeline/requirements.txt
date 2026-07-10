@@ -2,3 +2,5 @@ requests>=2.31
 beautifulsoup4>=4.12
 feedparser>=6.0.12
 bng-latlon>=1.1
+shapely>=2.0
+fiona>=1.9

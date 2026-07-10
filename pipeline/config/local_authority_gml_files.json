@@ -1,0 +1,10 @@
+{
+  "E06000057": {
+    "name": "Northumberland",
+    "download_url": "https://use-land-property-data.service.gov.uk/datasets/inspire/download/Northumberland_County_Council.zip"
+  },
+  "E06000065": {
+    "name": "North Yorkshire",
+    "download_url": "https://use-land-property-data.service.gov.uk/datasets/inspire/download/The_North_Yorkshire_Council.zip"
+  }
+}

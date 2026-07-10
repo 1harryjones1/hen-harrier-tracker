@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T16:14:00Z",
+  "generated_at": "2026-07-10T18:03:42Z",
   "items": {
     "rq_match_evt_20260710T122157Z_213843": {
       "bird_id": "213843",
@@ -380,6 +380,106 @@
         }
       ],
       "summary": "Sofia (34346): alive -> dead, June 2026 update. no habitat-layer match."
+    },
+    "rq_ownership_match_evt_20260710T122157Z_213924": {
+      "bird_id": "213924",
+      "bird_name": "R3-F2-22",
+      "confidence_tier": "local_authority_gml_not_configured",
+      "evidence_links": [
+        "data/processed/ownership_matches.json#ownership_match_evt_20260710T122157Z_213924",
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_213924",
+        "data/review/review_queue.json#rq_match_evt_20260710T122157Z_213924"
+      ],
+      "item_type": "ownership_match",
+      "ref_id": "ownership_match_evt_20260710T122157Z_213924",
+      "review_id": "rq_ownership_match_evt_20260710T122157Z_213924",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T18:03:41Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "R3-F2-22 (213924): this local authority's INSPIRE file isn't configured yet (operational gap, not a finding). Ownership candidate for your own review only - never published."
+    },
+    "rq_ownership_match_evt_20260710T122157Z_232636": {
+      "bird_id": "232636",
+      "bird_name": "R1-F4-22",
+      "confidence_tier": "local_authority_gml_not_configured",
+      "evidence_links": [
+        "data/processed/ownership_matches.json#ownership_match_evt_20260710T122157Z_232636",
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_232636",
+        "data/review/review_queue.json#rq_match_evt_20260710T122157Z_232636"
+      ],
+      "item_type": "ownership_match",
+      "ref_id": "ownership_match_evt_20260710T122157Z_232636",
+      "review_id": "rq_ownership_match_evt_20260710T122157Z_232636",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T18:03:41Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "R1-F4-22 (232636): this local authority's INSPIRE file isn't configured yet (operational gap, not a finding). Ownership candidate for your own review only - never published."
+    },
+    "rq_ownership_match_evt_20260710T122157Z_240291": {
+      "bird_id": "240291",
+      "bird_name": "Baldur",
+      "confidence_tier": "local_authority_gml_not_configured",
+      "evidence_links": [
+        "data/processed/ownership_matches.json#ownership_match_evt_20260710T122157Z_240291",
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_240291",
+        "data/review/review_queue.json#rq_match_evt_20260710T122157Z_240291"
+      ],
+      "item_type": "ownership_match",
+      "ref_id": "ownership_match_evt_20260710T122157Z_240291",
+      "review_id": "rq_ownership_match_evt_20260710T122157Z_240291",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T18:03:42Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Baldur (240291): this local authority's INSPIRE file isn't configured yet (operational gap, not a finding). Ownership candidate for your own review only - never published."
+    },
+    "rq_ownership_match_evt_20260710T122157Z_254844": {
+      "bird_id": "254844",
+      "bird_name": "Margaret",
+      "confidence_tier": "local_authority_gml_not_configured",
+      "evidence_links": [
+        "data/processed/ownership_matches.json#ownership_match_evt_20260710T122157Z_254844",
+        "data/processed/moorland_matches.json#match_evt_20260710T122157Z_254844",
+        "data/review/review_queue.json#rq_match_evt_20260710T122157Z_254844"
+      ],
+      "item_type": "ownership_match",
+      "ref_id": "ownership_match_evt_20260710T122157Z_254844",
+      "review_id": "rq_ownership_match_evt_20260710T122157Z_254844",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-07-10T18:03:42Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Margaret (254844): this local authority's INSPIRE file isn't configured yet (operational gap, not a finding). Ownership candidate for your own review only - never published."
     }
   },
   "schema_version": 1

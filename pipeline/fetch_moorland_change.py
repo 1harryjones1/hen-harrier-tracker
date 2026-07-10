@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 """
-Discovers the current FeatureServer URL for each of the 3 habitat layers
-used in Stage D (Moorland Change Map, Priority Habitats Inventory, CRoW Act
-2000 - Access Layer), caching them to pipeline/config/arcgis_layers.json.
+Discovers the current FeatureServer URL for each reference layer used
+downstream, caching them to pipeline/config/arcgis_layers.json: the 3
+habitat layers used in Stage D (Moorland Change Map, Priority Habitats
+Inventory, CRoW Act 2000 - Access Layer), plus the ONS Local Authority
+Districts boundary layer used in Stage E (resolving a point to "which
+local authority's INSPIRE file do I need").
 
 This file is committed so changes are diffable: the Moorland Change Map is
 republished under a new dataset name every year (doc §3/§9), so re-running
 this monthly and committing any change makes that self-healing and visible,
-instead of a silent 404 discovered months later. Runs all 3 discoveries
+instead of a silent 404 discovered months later. Runs all discoveries
 independently - one layer's failure doesn't block reporting the others.
 """
 
@@ -27,9 +30,15 @@ CONFIG_PATH = os.path.join(raw_snapshot.repo_root(), "pipeline", "config", "arcg
 SOURCE_NAME = "arcgis_habitat_layers"
 
 LAYERS = [
-    {"key": "moorland_change_map", "search_title": "Moorland Change Map", "exact_title_prefix": None},
-    {"key": "priority_habitats_inventory", "search_title": "Priority Habitats Inventory", "exact_title_prefix": None},
-    {"key": "crow_act_access_layer", "search_title": "CRoW Act", "exact_title_prefix": "CRoW Act 2000 - Access Layer"},
+    {"key": "moorland_change_map", "search_title": "Moorland Change Map", "exact_title_prefix": None, "owner": "Opendata_NE"},
+    {"key": "priority_habitats_inventory", "search_title": "Priority Habitats Inventory", "exact_title_prefix": None, "owner": "Opendata_NE"},
+    {"key": "crow_act_access_layer", "search_title": "CRoW Act", "exact_title_prefix": "CRoW Act 2000 - Access Layer", "owner": "Opendata_NE"},
+    {
+        "key": "local_authority_districts",
+        "search_title": "Local Authority Districts (December 2024) Boundaries UK BFC",
+        "exact_title_prefix": None,
+        "owner": "ONSGeography_data",
+    },
 ]
 
 
@@ -54,7 +63,9 @@ def main():
 
     for layer in LAYERS:
         try:
-            discovered = discover_layer(layer["search_title"], exact_title_prefix=layer["exact_title_prefix"])
+            discovered = discover_layer(
+                layer["search_title"], owner=layer["owner"], exact_title_prefix=layer["exact_title_prefix"]
+            )
         except (ArcGISError, requests.RequestException) as exc:
             errors.append(f"{layer['key']}: {exc}")
             continue

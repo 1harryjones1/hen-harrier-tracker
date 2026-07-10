@@ -9,13 +9,16 @@ Usage:
   python pipeline/review.py list [--status pending]
   python pipeline/review.py show <review_id>
   python pipeline/review.py confirm-located <review_id> --by "Your Name" [--notes "..."]
+  python pipeline/review.py confirm-attributed <review_id> --by "Your Name" [--notes "..."]
   python pipeline/review.py reject <review_id> --by "Your Name" --notes "..."
   python pipeline/review.py hold <review_id> --by "Your Name" --notes "..."
 
 `confirm-located` publishes the habitat-overlap annotation (region/habitat
-context, no owner named) - the only tier reachable at this build phase.
-There is no `confirm-attributed` command: that tier needs Stage E/Phase 3
-ownership data that doesn't exist yet.
+context, no owner named). `confirm-attributed` is for ownership_match
+items only, and does NOT publish anything - build_site.py has no code path
+that reads ownership data at all, at any status. It records your own
+assessment for your own research; naming an estate/owner publicly is a
+distinct, future, separate decision.
 """
 
 import argparse
@@ -25,6 +28,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from lib.review_state import (
+    STATUS_CONFIRMED_ATTRIBUTED,
     STATUS_CONFIRMED_LOCATED,
     STATUS_FALSE_POSITIVE,
     STATUS_INSUFFICIENT_EVIDENCE,
@@ -73,6 +77,14 @@ def cmd_confirm_located(args):
     return _set(args, STATUS_CONFIRMED_LOCATED)
 
 
+def cmd_confirm_attributed(args):
+    print(
+        "Note: confirmed-attributed records your own assessment only - it does not publish "
+        "anything. Naming an estate/owner publicly is a separate decision, not made by this command."
+    )
+    return _set(args, STATUS_CONFIRMED_ATTRIBUTED)
+
+
 def cmd_reject(args):
     return _set(args, STATUS_FALSE_POSITIVE)
 
@@ -95,6 +107,7 @@ def main():
 
     for name, func, help_text in [
         ("confirm-located", cmd_confirm_located, "Publish with region/habitat context, no owner named"),
+        ("confirm-attributed", cmd_confirm_attributed, "Record your own assessment of an ownership candidate - never publishes"),
         ("reject", cmd_reject, "Mark as a false positive - won't be published"),
         ("hold", cmd_hold, "Mark as insufficient evidence - won't be published, kept for later"),
     ]:

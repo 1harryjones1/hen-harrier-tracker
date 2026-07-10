@@ -1,20 +1,27 @@
 {
   "crow_act_access_layer": {
-    "discovered_at": "2026-07-10T12:42:16Z",
+    "discovered_at": "2026-07-10T17:52:05Z",
     "item_id": "6ce15f2cd06c4536983d315694dad16b",
     "modified": 1781798396000,
     "title": "CRoW Act 2000 - Access Layer",
     "url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/CRoW_Act_2000_Access_Layer/FeatureServer"
   },
+  "local_authority_districts": {
+    "discovered_at": "2026-07-10T17:52:06Z",
+    "item_id": "e00959b3cb35408db26e89e08036d8c0",
+    "modified": 1754900610000,
+    "title": "Local Authority Districts (December 2024) Boundaries UK BFC",
+    "url": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2024_Boundaries_UK_BFC/FeatureServer"
+  },
   "moorland_change_map": {
-    "discovered_at": "2026-07-10T12:42:15Z",
+    "discovered_at": "2026-07-10T17:52:04Z",
     "item_id": "c244474b09b4406881b21834c88a9f17",
     "modified": 1778513949000,
     "title": "Moorland Change Map (England) 2024-2025",
     "url": "https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Moorland_Change_Map_England_2024_2025/FeatureServer"
   },
   "priority_habitats_inventory": {
-    "discovered_at": "2026-07-10T12:42:15Z",
+    "discovered_at": "2026-07-10T17:52:05Z",
     "item_id": "39403df11c8044d998772db5b54ad86c",
     "modified": 1776794488000,
     "title": "Priority Habitats Inventory (England)",
