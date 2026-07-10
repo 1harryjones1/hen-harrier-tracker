@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T12:23:12Z",
+  "generated_at": "2026-07-10T16:14:00Z",
   "items": {
     "rq_match_evt_20260710T122157Z_213843": {
       "bird_id": "213843",
@@ -60,15 +60,20 @@
       "item_type": "moorland_match",
       "ref_id": "match_evt_20260710T122157Z_213924",
       "review_id": "rq_match_evt_20260710T122157Z_213924",
-      "reviewed_at": null,
-      "reviewed_by": null,
-      "reviewer_notes": null,
-      "status": "pending",
+      "reviewed_at": "2026-07-10T16:14:00Z",
+      "reviewed_by": "1harryjones1",
+      "reviewer_notes": "Confirmed: independent match across all 3 habitat layers (Priority Habitats Inventory, Moorland Change Map, CRoW Act access land) at 100m grid-reference precision.",
+      "status": "confirmed-located",
       "status_history": [
         {
           "at": "2026-07-10T12:22:16Z",
           "by": "system",
           "status": "pending"
+        },
+        {
+          "at": "2026-07-10T16:14:00Z",
+          "by": "1harryjones1",
+          "status": "confirmed-located"
         }
       ],
       "summary": "R3-F2-22 (213924): alive -> missing_fate_unknown, June 2026 update. intersects mapped moorland/upland habitat."
@@ -84,15 +89,20 @@
       "item_type": "moorland_match",
       "ref_id": "match_evt_20260710T122157Z_232636",
       "review_id": "rq_match_evt_20260710T122157Z_232636",
-      "reviewed_at": null,
-      "reviewed_by": null,
-      "reviewer_notes": null,
-      "status": "pending",
+      "reviewed_at": "2026-07-10T16:14:00Z",
+      "reviewed_by": "1harryjones1",
+      "reviewer_notes": "Confirmed: independent match across all 3 habitat layers (Priority Habitats Inventory, Moorland Change Map, CRoW Act access land) at 100m grid-reference precision.",
+      "status": "confirmed-located",
       "status_history": [
         {
           "at": "2026-07-10T12:22:14Z",
           "by": "system",
           "status": "pending"
+        },
+        {
+          "at": "2026-07-10T16:14:00Z",
+          "by": "1harryjones1",
+          "status": "confirmed-located"
         }
       ],
       "summary": "R1-F4-22 (232636): missing_fate_unknown -> dead, June 2026 update. intersects mapped moorland/upland habitat."
@@ -156,15 +166,20 @@
       "item_type": "moorland_match",
       "ref_id": "match_evt_20260710T122157Z_240291",
       "review_id": "rq_match_evt_20260710T122157Z_240291",
-      "reviewed_at": null,
-      "reviewed_by": null,
-      "reviewer_notes": null,
-      "status": "pending",
+      "reviewed_at": "2026-07-10T16:14:00Z",
+      "reviewed_by": "1harryjones1",
+      "reviewer_notes": "Confirmed: independent match across all 3 habitat layers (Priority Habitats Inventory, Moorland Change Map, CRoW Act access land) at 100m grid-reference precision.",
+      "status": "confirmed-located",
       "status_history": [
         {
           "at": "2026-07-10T12:22:22Z",
           "by": "system",
           "status": "pending"
+        },
+        {
+          "at": "2026-07-10T16:14:00Z",
+          "by": "1harryjones1",
+          "status": "confirmed-located"
         }
       ],
       "summary": "Baldur (240291): alive -> missing_fate_unknown, June 2026 update. intersects mapped moorland/upland habitat."

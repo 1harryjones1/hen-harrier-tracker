@@ -1199,12 +1199,12 @@
       "properties": {
         "bird_id": "213924",
         "bird_name": "R3-F2-22",
-        "confirmed_at": null,
+        "confirmed_at": "2026-07-10T16:14:00Z",
         "event_date": "2025-02-03",
-        "habitat_context": null,
+        "habitat_context": "Within mapped habitat: Upland heathland; recorded moorland-change area (North York Moors); open-access moorland/heath/down (CRoW Act 2000)",
         "location_disclosed": true,
         "location_precision_m": 100,
-        "publish_tier": "located",
+        "publish_tier": "confirmed-located",
         "region_text": "North York Moors",
         "source_name": "Natural England hen harrier tracking update",
         "source_update_label": "June 2026 update",
@@ -1463,12 +1463,12 @@
       "properties": {
         "bird_id": "232636",
         "bird_name": "R1-F4-22",
-        "confirmed_at": null,
+        "confirmed_at": "2026-07-10T16:14:00Z",
         "event_date": "2025-04-02",
-        "habitat_context": null,
+        "habitat_context": "Within mapped habitat: Upland heathland; recorded moorland-change area (North Pennines); open-access moorland/heath/down (CRoW Act 2000)",
         "location_disclosed": true,
         "location_precision_m": 100,
-        "publish_tier": "located",
+        "publish_tier": "confirmed-located",
         "region_text": "Yorkshire Dales",
         "source_name": "Natural England hen harrier tracking update",
         "source_update_label": "June 2026 update",
@@ -1751,12 +1751,12 @@
       "properties": {
         "bird_id": "240291",
         "bird_name": "Baldur",
-        "confirmed_at": null,
+        "confirmed_at": "2026-07-10T16:14:00Z",
         "event_date": "2024-10-15",
-        "habitat_context": null,
+        "habitat_context": "Within mapped habitat: Upland heathland; recorded moorland-change area (Northumberland); open-access moorland/heath/down (CRoW Act 2000)",
         "location_disclosed": true,
         "location_precision_m": 100,
-        "publish_tier": "located",
+        "publish_tier": "confirmed-located",
         "region_text": "Northumberland",
         "source_name": "Natural England hen harrier tracking update",
         "source_update_label": "June 2026 update",
@@ -2896,7 +2896,7 @@
       "type": "Feature"
     }
   ],
-  "generated_at": "2026-07-10T16:05:40Z",
+  "generated_at": "2026-07-10T16:14:08Z",
   "properties": {
     "schema_version": 1
   },
