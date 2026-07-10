@@ -1,0 +1,33 @@
+{
+  "events": [
+    {
+      "bird_id": "203005",
+      "bird_name": "R2-F3-20",
+      "coordinates": null,
+      "detected_at": "2026-07-10T12:08:27Z",
+      "event_id": "evt_20260710T120827Z_203005",
+      "event_type": "location_updated",
+      "location_status": "not_applicable_alive",
+      "new_location_text": "North Pennines",
+      "previous_location_text": "Northumberland",
+      "raw_snapshot_path": "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods",
+      "source_update_label": "June 2026 update",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods"
+    },
+    {
+      "bird_id": "234074",
+      "bird_name": "Bernie",
+      "coordinates": null,
+      "detected_at": "2026-07-10T12:08:27Z",
+      "event_id": "evt_20260710T120827Z_234074",
+      "event_type": "location_updated",
+      "location_status": "not_applicable_alive",
+      "new_location_text": "South Lanarkshire, Scotland",
+      "previous_location_text": "Northumberland",
+      "raw_snapshot_path": "data/raw/ne_hen_harrier_ods/20260710T120119Z.ods",
+      "source_update_label": "June 2026 update",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6a315236141f0690ad5fa424/HH-satellite-tracked-update-june-2026.ods"
+    }
+  ],
+  "schema_version": 1
+}
