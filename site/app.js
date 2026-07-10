@@ -156,7 +156,32 @@
       .join("");
   }
 
-  function init(incidents, unconfirmed, sourceStatus) {
+  function renderStatTiles(stats) {
+    var container = document.getElementById("stat-tiles");
+    if (!stats) {
+      container.innerHTML = "";
+      return;
+    }
+    var sinceLabel = stats.tracking_since_year ? "Hen harriers tracked since " + stats.tracking_since_year : "Hen harriers tracked";
+    var tiles = [
+      { value: stats.total_tracked, label: sinceLabel },
+      { value: stats.dead_or_missing, label: "Now dead or missing" },
+      { value: stats.confirmed_near_habitat, label: "Confirmed near mapped habitat" },
+    ];
+    container.innerHTML = tiles
+      .map(function (t) {
+        return (
+          '<div class="stat-tile"><span class="stat-value">' +
+          escapeHtml(t.value == null ? "—" : t.value) +
+          '</span><span class="stat-label">' +
+          escapeHtml(t.label) +
+          "</span></div>"
+        );
+      })
+      .join("");
+  }
+
+  function init(incidents, unconfirmed, sourceStatus, stats) {
     var map = L.map("map").setView([54.8, -2.5], 6);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -184,15 +209,17 @@
     renderRedactedList(incidents.features || []);
     renderUnconfirmedList((unconfirmed && unconfirmed.reports) || []);
     renderSourceStatus(sourceStatus);
+    renderStatTiles(stats);
   }
 
   Promise.all([
     fetch("data/incidents.geojson").then(function (r) { return r.json(); }),
     fetch("data/unconfirmed_reports.json").then(function (r) { return r.json(); }),
     fetch("data/source_status.json").then(function (r) { return r.json(); }),
+    fetch("data/site_stats.json").then(function (r) { return r.json(); }),
   ])
     .then(function (results) {
-      init(results[0], results[1], results[2]);
+      init(results[0], results[1], results[2], results[3]);
     })
     .catch(function (err) {
       document.getElementById("map").innerHTML =

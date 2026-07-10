@@ -176,6 +176,25 @@ def build_source_status():
     return {"checked_at": raw_snapshot.utcnow_iso(), "sources": status}
 
 
+def build_site_stats(incidents_geojson):
+    """Headline counts for the site's plain-English summary - a quick sense of scale
+    before anyone has to read the map itself."""
+    birds_data = load_json(BIRDS_JSON_PATH, {"source": {}, "birds": {}})
+    birds = birds_data["birds"].values()
+    fitted_years = [b["date_fitted"][:4] for b in birds if b.get("date_fitted")]
+    confirmed = sum(
+        1 for f in incidents_geojson["features"] if f["properties"]["publish_tier"] == "confirmed-located"
+    )
+    return {
+        "generated_at": raw_snapshot.utcnow_iso(),
+        "total_tracked": len(birds),
+        "dead_or_missing": sum(1 for b in birds if b["status"] in ("dead", "missing_fate_unknown")),
+        "alive": sum(1 for b in birds if b["status"] == "alive"),
+        "confirmed_near_habitat": confirmed,
+        "tracking_since_year": min(fitted_years) if fitted_years else None,
+    }
+
+
 def copy_published_to_site():
     os.makedirs(SITE_DATA_DIR, exist_ok=True)
     for filename in os.listdir(PUBLISHED_DIR):
@@ -183,9 +202,11 @@ def copy_published_to_site():
 
 
 def main():
-    write_json(os.path.join(PUBLISHED_DIR, "incidents.geojson"), build_incidents_geojson())
+    incidents = build_incidents_geojson()
+    write_json(os.path.join(PUBLISHED_DIR, "incidents.geojson"), incidents)
     write_json(os.path.join(PUBLISHED_DIR, "unconfirmed_reports.json"), build_unconfirmed_reports())
     write_json(os.path.join(PUBLISHED_DIR, "source_status.json"), build_source_status())
+    write_json(os.path.join(PUBLISHED_DIR, "site_stats.json"), build_site_stats(incidents))
     copy_published_to_site()
     print(f"Built site data -> {SITE_DATA_DIR}")
     return 0

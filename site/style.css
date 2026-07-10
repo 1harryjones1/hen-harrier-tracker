@@ -42,14 +42,40 @@ body {
   background: var(--surface);
 }
 .site-header h1 { margin: 0 0 0.35rem; font-size: 1.5rem; }
-.site-header .subtitle {
-  margin: 0;
+.site-header .intro {
+  margin: 0 0 1rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
   max-width: 70ch;
   line-height: 1.5;
 }
 .site-header a, .site-footer a { color: var(--text-primary); }
+
+.stat-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+}
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--gridline);
+  border-radius: 6px;
+  min-width: 8rem;
+}
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-variant-numeric: proportional-nums;
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
 
 .layout {
   display: grid;
