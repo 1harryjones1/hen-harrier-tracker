@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-07-10T12:37:05Z",
+  "reports": {
+    "rpuk:http://raptorpersecutionuk.org/?p=66291": {
+      "fetched_at": "2026-07-10T12:37:05Z",
+      "link": "https://raptorpersecutionuk.org/2026/06/09/moorland-associations-amateurish-attempt-to-analyse-hen-harrier-tag-data-is-full-of-holes-much-like-a-shot-hen-harrier/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-06-09T20:46:26Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=66291",
+      "source_name": "Raptor Persecution UK",
+      "title": "Moorland Association’s amateurish attempt to analyse Hen Harrier tag data is full of holes (much like a shot Hen Harrier)"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=66470": {
+      "fetched_at": "2026-07-10T12:37:05Z",
+      "link": "https://raptorpersecutionuk.org/2026/06/24/yet-another-hen-harrier-disappears-from-ruabon-grouse-moor-in-north-wales-her-satellite-tag-had-been-deliberately-cut-off/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-06-24T09:12:59Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=66470",
+      "source_name": "Raptor Persecution UK",
+      "title": "Yet another Hen Harrier ‘disappears’ from Ruabon grouse moor in North Wales – her satellite tag had been “deliberately cut off”"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=66511": {
+      "fetched_at": "2026-07-10T12:37:05Z",
+      "link": "https://raptorpersecutionuk.org/2026/06/24/149-hen-harriers-confirmed-missing-or-illegally-killed-in-uk-since-2018-most-of-them-on-or-close-to-grouse-moors/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-06-24T13:44:23Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=66511",
+      "source_name": "Raptor Persecution UK",
+      "title": "149 Hen Harriers confirmed ‘missing’ or illegally killed in UK since 2018, most of them on or close to grouse moors"
+    }
+  },
+  "schema_version": 1
+}
