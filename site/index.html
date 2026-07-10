@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hen Harrier Tracker — UK Raptor Persecution Monitoring</title>
+<meta name="description" content="Automated, transparently-sourced tracking of UK satellite-tagged hen harrier status, cross-referenced against moorland habitat.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Hen Harrier Tracker</h1>
+  <p class="subtitle">
+    Automated tracking of UK satellite-tagged hen harrier status, cross-referenced against mapped
+    moorland/upland habitat. Every marker traces back to a dated, linked source.
+    <a href="https://www.gov.uk/government/publications/hen-harriers-tracking-programme-update/hen-harrier-tracking-update">About the source data</a>
+  </p>
+</header>
+
+<main class="layout">
+  <div id="map" role="img" aria-label="Map of tagged hen harrier last-known locations"></div>
+
+  <aside class="sidebar">
+    <section class="panel legend" aria-label="Map legend">
+      <h2>Legend</h2>
+      <ul class="legend-list">
+        <li><span class="swatch" style="background:var(--status-good)"></span> Alive, transmitting</li>
+        <li><span class="swatch" style="background:var(--status-serious)"></span> Missing, fate unknown</li>
+        <li><span class="swatch" style="background:var(--status-critical)"></span> Dead</li>
+        <li><span class="swatch" style="background:var(--status-muted)"></span> Status unknown</li>
+      </ul>
+      <p class="legend-note">
+        <span class="swatch ringed" style="background:var(--status-critical)"></span>
+        A bold ring means a human reviewer has confirmed this bird's last-known location
+        intersects mapped moorland/upland habitat (never a named estate or owner — see
+        <a href="#methodology">methodology</a>).
+      </p>
+    </section>
+
+    <section class="panel" id="redacted-panel" aria-label="Birds with undisclosed locations">
+      <h2>Locations not disclosed by NE</h2>
+      <p class="panel-note">Natural England deliberately withholds precise roost/nest sites for some
+        birds for species-protection reasons. This is not a data gap in this pipeline.</p>
+      <ul id="redacted-list" class="entry-list"></ul>
+    </section>
+
+    <section class="panel" id="unconfirmed-panel" aria-label="Unconfirmed press reports">
+      <h2>Unconfirmed reports</h2>
+      <p class="panel-note">Independent press mentions (Raptor Persecution UK, Natural England blog),
+        shown as-published. Not yet matched to a specific bird or location by this pipeline.</p>
+      <ul id="unconfirmed-list" class="entry-list"></ul>
+    </section>
+  </aside>
+</main>
+
+<footer class="site-footer" id="methodology">
+  <h2>Data freshness</h2>
+  <ul id="source-status-list" class="source-status-list"></ul>
+  <p class="disclaimer">
+    This is a batch pipeline on a schedule, not a real-time feed — see each source's own refresh
+    cadence above. Habitat cross-referencing shows proximity to mapped moorland/upland habitat as a
+    proxy, not proof of a grouse moor and never a named estate or owner. Nothing is published as a
+    confirmed habitat match until a human reviewer has checked the evidence.
+    Inspired by (not a replication of) Murgatroyd et al. 2019.
+  </p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="app.js"></script>
+</body>
+</html>

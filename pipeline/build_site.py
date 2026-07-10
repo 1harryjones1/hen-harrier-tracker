@@ -75,7 +75,9 @@ def _latest_event_for_bird(events, bird_id):
 _LAYER_DESCRIPTIONS = {
     "priority_habitats_inventory": lambda attrs: attrs.get("MainHabs"),
     "moorland_change_map": lambda attrs: (
-        f"recorded moorland-change area ({attrs['LOCATION']})" if attrs.get("LOCATION") else "recorded moorland-change area"
+        f"recorded moorland-change area ({attrs['LOCATION'].replace('_', ' ')})"
+        if attrs.get("LOCATION")
+        else "recorded moorland-change area"
     ),
     "crow_act_access_layer": lambda attrs: "open-access moorland/heath/down (CRoW Act 2000)",
 }

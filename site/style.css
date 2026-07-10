@@ -1,0 +1,125 @@
+/* Palette: fixed status roles + light/dark chart chrome (see dataviz skill palette.md) */
+:root {
+  --page-bg: #f9f9f7;
+  --surface: #fcfcfb;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --gridline: #e1e0d9;
+  --border: rgba(11, 11, 11, 0.10);
+
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --status-muted: #898781;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #0d0d0d;
+    --surface: #1a1a19;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--text-primary);
+}
+
+.site-header {
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--gridline);
+  background: var(--surface);
+}
+.site-header h1 { margin: 0 0 0.35rem; font-size: 1.5rem; }
+.site-header .subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  max-width: 70ch;
+  line-height: 1.5;
+}
+.site-header a, .site-footer a { color: var(--text-primary); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  min-height: 70vh;
+}
+
+#map {
+  width: 100%;
+  min-height: 70vh;
+  background: var(--gridline);
+}
+
+.sidebar {
+  border-left: 1px solid var(--gridline);
+  background: var(--surface);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.panel { padding: 1rem 1.25rem; border-bottom: 1px solid var(--gridline); }
+.panel h2 { font-size: 0.95rem; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-secondary); }
+.panel-note { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0 0 0.6rem; }
+
+.legend-list { list-style: none; margin: 0 0 0.75rem; padding: 0; font-size: 0.85rem; }
+.legend-list li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; }
+.legend-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; display: flex; gap: 0.5rem; align-items: flex-start; }
+.legend-note a { color: var(--text-secondary); }
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.swatch.ringed {
+  box-shadow: 0 0 0 2px var(--text-primary);
+}
+
+.entry-list { list-style: none; margin: 0; padding: 0; font-size: 0.85rem; }
+.entry-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--gridline); }
+.entry-list li:last-child { border-bottom: none; }
+.entry-list .entry-title { font-weight: 600; display: block; }
+.entry-list .entry-meta { color: var(--text-muted); font-size: 0.78rem; }
+.entry-list a { color: var(--text-primary); }
+.entry-list .empty { color: var(--text-muted); font-style: italic; }
+
+.site-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--gridline);
+  background: var(--surface);
+}
+.site-footer h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-secondary); margin: 0 0 0.5rem; }
+.source-status-list { list-style: none; margin: 0 0 1rem; padding: 0; font-size: 0.82rem; display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.source-status-list .ok { color: var(--status-good); }
+.source-status-list .stale { color: var(--status-warning); }
+.source-status-list .failed { color: var(--status-critical); }
+.disclaimer { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; max-width: 90ch; margin: 0; }
+
+/* Leaflet popup content */
+.hh-popup h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
+.hh-popup .status-line { font-size: 0.85rem; margin: 0 0 0.35rem; }
+.hh-popup .habitat-context { font-size: 0.8rem; color: var(--text-secondary); margin: 0.35rem 0; }
+.hh-popup .meta { font-size: 0.75rem; color: var(--text-muted); margin: 0.25rem 0 0; }
+.hh-popup a { color: inherit; }
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  #map { min-height: 50vh; }
+  .sidebar { max-height: none; border-left: none; border-top: 1px solid var(--gridline); }
+}
