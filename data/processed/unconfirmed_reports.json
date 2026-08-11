@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T06:54:56Z",
+  "generated_at": "2026-08-11T06:32:03Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -60,6 +60,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=66817",
       "source_name": "Raptor Persecution UK",
       "title": "Natural England finally publishes its formal review of Hen Harrier brood meddling trial"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67156": {
+      "fetched_at": "2026-08-11T06:32:03Z",
+      "link": "https://raptorpersecutionuk.org/2026/08/10/sustained-success-in-2026-for-hen-harriers-on-united-utilities-owned-moorland-in-bowland-lancashire/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-08-10T07:34:40Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67156",
+      "source_name": "Raptor Persecution UK",
+      "title": "Sustained success in 2026 for Hen Harriers on United Utilities-owned moorland in Bowland, Lancashire"
     }
   },
   "schema_version": 1
