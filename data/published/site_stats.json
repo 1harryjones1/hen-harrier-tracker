@@ -1,8 +1,8 @@
 {
-  "alive": 10,
+  "alive": 18,
   "confirmed_near_habitat": 4,
-  "dead_or_missing": 103,
-  "generated_at": "2026-08-17T06:03:43Z",
-  "total_tracked": 113,
+  "dead_or_missing": 104,
+  "generated_at": "2026-08-17T07:25:40Z",
+  "total_tracked": 122,
   "tracking_since_year": "2013"
 }
