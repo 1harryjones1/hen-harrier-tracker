@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T05:59:39Z",
+  "generated_at": "2026-08-24T06:07:38Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -84,6 +84,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67230",
       "source_name": "Raptor Persecution UK",
       "title": "Hen Harrier persecution on UK grouse moors – new research suggests only 0.5 – 10% incidents are detected"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67302": {
+      "fetched_at": "2026-08-24T06:07:38Z",
+      "link": "https://raptorpersecutionuk.org/2026/08/24/montagus-harrier-uks-rarest-breeding-raptor-nests-successfully-in-england-for-second-year-in-a-row/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-08-24T04:35:14Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67302",
+      "source_name": "Raptor Persecution UK",
+      "title": "Montagu’s Harrier, UK’s rarest breeding raptor, nests successfully in England for second year in a row"
     }
   },
   "schema_version": 1
