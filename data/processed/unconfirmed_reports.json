@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T10:43:04Z",
+  "generated_at": "2026-09-08T10:04:25Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -96,6 +96,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67302",
       "source_name": "Raptor Persecution UK",
       "title": "Montagu’s Harrier, UK’s rarest breeding raptor, nests successfully in England for second year in a row"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67626": {
+      "fetched_at": "2026-09-08T10:04:25Z",
+      "link": "https://raptorpersecutionuk.org/2026/09/07/satellite-tagged-montagus-harrier-killed-in-train-collision/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-09-07T16:33:30Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67626",
+      "source_name": "Raptor Persecution UK",
+      "title": "Satellite-tagged Montagu’s Harrier killed in train collision"
     }
   },
   "schema_version": 1
