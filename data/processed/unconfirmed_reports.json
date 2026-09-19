@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T10:02:11Z",
+  "generated_at": "2026-09-19T09:42:26Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -108,6 +108,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67626",
       "source_name": "Raptor Persecution UK",
       "title": "Satellite-tagged Montagu’s Harrier killed in train collision"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67657": {
+      "fetched_at": "2026-09-19T09:42:26Z",
+      "link": "https://raptorpersecutionuk.org/2026/09/18/record-year-for-hen-harriers-at-rspbs-geltsdale-reserve-in-cumbria/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-09-18T14:17:41Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67657",
+      "source_name": "Raptor Persecution UK",
+      "title": "Record year for hen Harriers at RSPB’s Geltsdale Reserve in Cumbria"
     }
   },
   "schema_version": 1
