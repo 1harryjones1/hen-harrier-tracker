@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T11:05:08Z",
+  "generated_at": "2026-09-22T10:18:21Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -120,6 +120,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67657",
       "source_name": "Raptor Persecution UK",
       "title": "Record year for hen Harriers at RSPB’s Geltsdale Reserve in Cumbria"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67696": {
+      "fetched_at": "2026-09-22T10:18:21Z",
+      "link": "https://raptorpersecutionuk.org/2026/09/22/marsh-harrier-found-shot-in-north-york-moors-national-park-police-appeal-for-information/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-09-22T01:55:11Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67696",
+      "source_name": "Raptor Persecution UK",
+      "title": "Marsh Harrier found shot in North York Moors National Park – Police appeal for information"
     }
   },
   "schema_version": 1
