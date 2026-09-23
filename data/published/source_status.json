@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-22T10:18:21Z",
+  "checked_at": "2026-09-23T10:16:15Z",
   "sources": {
     "arcgis_habitat_layers": {
       "last_attempt_at": "2026-09-01T12:16:46Z",
@@ -8,9 +8,9 @@
       "ok": true
     },
     "ne_blog": {
-      "last_attempt_at": "2026-09-22T10:18:20Z",
+      "last_attempt_at": "2026-09-23T10:16:14Z",
       "last_detail": "10 entries, 0 new harrier-relevant",
-      "last_success_at": "2026-09-22T10:18:20Z",
+      "last_success_at": "2026-09-23T10:16:14Z",
       "ok": true
     },
     "ne_hen_harrier_tags": {
@@ -20,9 +20,9 @@
       "ok": true
     },
     "rpuk_rss": {
-      "last_attempt_at": "2026-09-22T10:18:21Z",
-      "last_detail": "10 entries, 1 new harrier-relevant",
-      "last_success_at": "2026-09-22T10:18:21Z",
+      "last_attempt_at": "2026-09-23T10:16:15Z",
+      "last_detail": "10 entries, 0 new harrier-relevant",
+      "last_success_at": "2026-09-23T10:16:15Z",
       "ok": true
     }
   }
