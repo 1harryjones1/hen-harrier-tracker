@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T10:16:15Z",
+  "generated_at": "2026-09-24T10:29:47Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -132,6 +132,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67696",
       "source_name": "Raptor Persecution UK",
       "title": "Marsh Harrier found shot in North York Moors National Park – Police appeal for information"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67726": {
+      "fetched_at": "2026-09-24T10:29:47Z",
+      "link": "https://raptorpersecutionuk.org/2026/09/23/yorkshire-wildlife-trust-finds-its-voice-calls-for-government-action-on-raptor-persecution/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-09-23T11:58:19Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67726",
+      "source_name": "Raptor Persecution UK",
+      "title": "Yorkshire Wildlife Trust finds its voice & calls for Government action on raptor persecution"
     }
   },
   "schema_version": 1
