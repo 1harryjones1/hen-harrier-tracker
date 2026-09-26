@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T10:32:23Z",
+  "generated_at": "2026-09-26T10:14:15Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -144,6 +144,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67726",
       "source_name": "Raptor Persecution UK",
       "title": "Yorkshire Wildlife Trust finds its voice & calls for Government action on raptor persecution"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67741": {
+      "fetched_at": "2026-09-26T10:14:15Z",
+      "link": "https://raptorpersecutionuk.org/2026/09/25/more-breeding-success-for-hen-harriers-on-rspb-reserves-this-time-in-wales/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-09-25T10:44:56Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67741",
+      "source_name": "Raptor Persecution UK",
+      "title": "More breeding success for Hen Harriers on RSPB reserves – this time in Wales"
     }
   },
   "schema_version": 1
