@@ -6,9 +6,9 @@
     "ok": true
   },
   "ne_blog": {
-    "last_attempt_at": "2026-10-09T12:05:05Z",
+    "last_attempt_at": "2026-10-10T11:21:10Z",
     "last_detail": "10 entries, 0 new harrier-relevant",
-    "last_success_at": "2026-10-09T12:05:05Z",
+    "last_success_at": "2026-10-10T11:21:10Z",
     "ok": true
   },
   "ne_hen_harrier_tags": {
@@ -18,9 +18,9 @@
     "ok": true
   },
   "rpuk_rss": {
-    "last_attempt_at": "2026-10-09T12:05:06Z",
+    "last_attempt_at": "2026-10-10T11:21:11Z",
     "last_detail": "10 entries, 0 new harrier-relevant",
-    "last_success_at": "2026-10-09T12:05:06Z",
+    "last_success_at": "2026-10-10T11:21:11Z",
     "ok": true
   }
 }
