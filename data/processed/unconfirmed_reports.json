@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T11:35:11Z",
+  "generated_at": "2026-10-12T13:29:52Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -156,6 +156,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67741",
       "source_name": "Raptor Persecution UK",
       "title": "More breeding success for Hen Harriers on RSPB reserves – this time in Wales"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67842": {
+      "fetched_at": "2026-10-12T13:29:52Z",
+      "link": "https://raptorpersecutionuk.org/2026/10/12/guest-blog-what-happened-to-the-58-hen-harriers-the-unanswered-questions-behind-natural-englands-brood-management-experiment/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-10-12T11:55:37Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67842",
+      "source_name": "Raptor Persecution UK",
+      "title": "Guest blog: What happened to the 58 Hen Harriers? The unanswered questions behind Natural England’s brood management experiment"
     }
   },
   "schema_version": 1
