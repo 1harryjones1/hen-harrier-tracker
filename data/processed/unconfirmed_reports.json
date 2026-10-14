@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T12:56:03Z",
+  "generated_at": "2026-10-14T10:35:09Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -12,6 +12,18 @@
       "report_id": "ne_blog:https://naturalengland.blog.gov.uk/?p=7459",
       "source_name": "Natural England blog",
       "title": "Natural England publishes Hen Harrier Brood Management Trial"
+    },
+    "ne_blog:https://naturalengland.blog.gov.uk/?p=7721": {
+      "fetched_at": "2026-10-14T10:35:08Z",
+      "link": "https://naturalengland.blog.gov.uk/2026/10/14/working-together-sustains-hen-harrier-numbers-in-2026/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-10-14T09:35:17Z",
+      "report_id": "ne_blog:https://naturalengland.blog.gov.uk/?p=7721",
+      "source_name": "Natural England blog",
+      "title": "Working together sustains Hen Harrier numbers in 2026"
     },
     "rpuk:http://raptorpersecutionuk.org/?p=66291": {
       "fetched_at": "2026-07-10T12:37:05Z",
