@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T10:35:09Z",
+  "generated_at": "2026-10-15T10:16:46Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -180,6 +180,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67842",
       "source_name": "Raptor Persecution UK",
       "title": "Guest blog: What happened to the 58 Hen Harriers? The unanswered questions behind Natural England’s brood management experiment"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67912": {
+      "fetched_at": "2026-10-15T10:16:46Z",
+      "link": "https://raptorpersecutionuk.org/2026/10/15/natural-england-publishes-2026-hen-harrier-breeding-attempts-only-9-of-45-were-on-grouse-moors/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-10-15T00:47:17Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67912",
+      "source_name": "Raptor Persecution UK",
+      "title": "Natural England publishes 2026 Hen Harrier breeding attempts – only 9 (of 45) were on grouse moors"
     }
   },
   "schema_version": 1
