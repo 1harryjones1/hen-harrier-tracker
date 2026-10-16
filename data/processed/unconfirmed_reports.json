@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T10:16:46Z",
+  "generated_at": "2026-10-16T10:04:58Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -192,6 +192,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67912",
       "source_name": "Raptor Persecution UK",
       "title": "Natural England publishes 2026 Hen Harrier breeding attempts – only 9 (of 45) were on grouse moors"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=67966": {
+      "fetched_at": "2026-10-16T10:04:58Z",
+      "link": "https://raptorpersecutionuk.org/2026/10/16/post-mortems-suggest-five-hen-harrier-chicks-found-dead-in-nest-on-grouse-moor-in-northern-england-had-injuries-consistent-with-being-stabbed/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-10-16T05:48:50Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67966",
+      "source_name": "Raptor Persecution UK",
+      "title": "Post-mortems suggest five Hen Harrier chicks found dead in nest on grouse moor in northern England had injuries consistent with being stabbed"
     }
   },
   "schema_version": 1
