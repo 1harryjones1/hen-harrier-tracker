@@ -143,13 +143,21 @@ EXPENSES_RE = re.compile(
 )
 
 TIER_ORDER = ["paid", "likely_paid", "healthy", "paid_patients", "expenses", "patients"]
-TIER_LABEL = {
-    "paid": "💷 paid, healthy volunteers",
-    "likely_paid": "💷 healthy volunteers, phase 1/industry (often paid)",
-    "healthy": "🟡 healthy volunteers (pay not stated)",
-    "paid_patients": "💷 paid, but only for people with the condition",
-    "expenses": "patients, expenses covered",
+TIER_LABEL = {  # who can join
+    "paid": "healthy volunteers",
+    "likely_paid": "healthy volunteers",
+    "healthy": "healthy volunteers",
+    "paid_patients": "patients only",
+    "expenses": "patients only",
     "patients": "patients only",
+}
+PAY_FALLBACK = {  # pay line when no amount is stated
+    "paid": "💷 paid (amount not stated)",
+    "likely_paid": "💷 probably paid (phase 1/industry), amount not stated",
+    "healthy": "💷 pay not stated",
+    "paid_patients": "💷 paid (amount not stated)",
+    "expenses": "💷 expenses only",
+    "patients": "💷 pay not stated",
 }
 PAYISH_TIERS = {"paid", "likely_paid", "healthy"}  # open to healthy volunteers
 
@@ -373,6 +381,165 @@ def assign_tier(item: dict, pay_evidence: list[str], expenses: bool) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Commitment snapshot: pay, time, what's involved, rough risk
+# ---------------------------------------------------------------------------
+
+_NUM = r"(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|a single|single)"
+_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
+          "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "a single": 1,
+          "single": 1}
+AMOUNT_RE = re.compile(r"(up to |a total of |total of )?£\s?(\d[\d,]*(?:\.\d\d)?)", re.I)
+VISITS_RE = re.compile(_NUM + r"\s+(?:[a-z-]+\s+){0,2}?(?:visits?|sessions?|appointments?)\b", re.I)
+DURATION_RE = re.compile(
+    r"(?:over|for|lasting|lasts?|period of|up to|about|approximately|across|around)\s+"
+    r"(?:a\s+)?(?:period of\s+)?(?:about\s+)?" + _NUM + r"[\s-]+(day|week|month|year)s?", re.I)
+DURATION_ADJ_RE = re.compile(
+    r"\b(\d+)[\s-](day|week|month|year)s?[\s-](?:long\s+)?(?:study|programme|program"
+    r"|intervention|period|trial|course|plan)", re.I)
+VISIT_LEN_RE = re.compile(
+    r"(\d+(?:\.\d+)?|one|two|three|four|five|six|half an?)\s*(?:(?:-|–|to)\s*(\d+(?:\.\d+)?))?"
+    r"\s*(hours?|hrs?|minutes?|mins?)\b", re.I)
+OVERNIGHT_RE = re.compile(
+    r"(\d+|one|two|three|four|five|six|seven)\s+(?:consecutive\s+)?nights?|overnight"
+    r"|residential|stay (?:in|at) the (?:unit|ward|hospital|clinic|facility)", re.I)
+
+# (label, regex, risk weight 0-3). Weight is a rough guide: 0 = nothing physical,
+# 1 = minor (blood tests, MRI, exercise), 2 = drug/radiation/injection, 3 = invasive.
+PROCEDURES = [
+    ("study drug", r"investigational (?:medicinal )?product|study (?:drug|medicine|medication)"
+                   r"|\bIMP\b|placebo|first[- ]in[- ]human", 2),
+    ("muscle biopsy", r"muscle biops", 3),
+    ("biopsy", r"(?<!muscle )biops(?:y|ies)", 3),
+    ("lumbar puncture", r"lumbar puncture|spinal tap|cerebrospinal fluid", 3),
+    ("endoscopy", r"endoscop|colonoscop|bronchoscop|gastroscop", 3),
+    ("PET/CT scan (radiation)", r"\bPET\b|positron emission|\bCT scan|computed tomography"
+                                r"|radiotracer|radiolabel", 2),
+    ("injection/IV", r"injection|intravenous|infusion|\bcannula", 2),
+    ("MRI", r"\bMRI\b|magnetic resonance", 1),
+    ("DEXA scan", r"\bDEXA\b|\bDXA\b", 1),
+    ("blood tests", r"blood (?:test|sample|draw)|venepuncture|venipuncture", 1),
+    ("cold water", r"cold[- ]water|cold exposure|ice[- ]bath|immersion", 1),
+    ("heat/sauna", r"\bsauna|heat (?:therapy|exposure)|hot[- ]water", 1),
+    ("exercise tests", r"exercise (?:test|session|bout|training|programme|program)|treadmill"
+                       r"|ergometer|\bVO2|fitness test", 1),
+    ("brain stimulation", r"\bTMS\b|transcranial|\btDCS\b", 1),
+    ("diet changes", r"\bdiet(?:ary)? (?:change|intervention|period|plan)|fasting"
+                     r"|calorie restriction|standardi[sz]ed meals?|test meals?", 1),
+    ("supplement", r"supplement(?:ation)?\b", 1),
+    ("skin tests", r"skin (?:prick|test|patch)|patch test", 1),
+    ("EEG", r"\bEEG\b|electroencephalog", 0),
+    ("wearable", r"wearable|accelerometer|activity (?:monitor|tracker)|smart ?watch", 0),
+    ("urine/stool samples", r"urine sample|stool sample|faecal|fecal sample|saliva sample", 0),
+    ("questionnaires", r"questionnaire|survey|interview", 0),
+    ("app", r"\bapp\b|smartphone|online (?:programme|program|platform)", 0),
+]
+PROCEDURE_RES = [(label, re.compile(rx, re.I), w) for label, rx, w in PROCEDURES]
+RISK_LABEL = {0: "🟢 low risk", 1: "🟢 low risk", 2: "🟠 moderate risk", 3: "🔴 higher risk"}
+
+
+def _num(word: str) -> int | None:
+    word = word.lower()
+    return int(word) if word.isdigit() else _WORDS.get(word)
+
+
+def pay_amount(text: str) -> str:
+    """'£150', 'up to £450', '£20 voucher', '£25/visit' from free text."""
+    found = []
+    for m in AMOUNT_RE.finditer(text or ""):
+        after = text[m.end(): m.end() + 45].lower()
+        before = text[max(0, m.start() - 60): m.start()].lower()
+        if re.search(r"million|grant|fund|cost|worth of research|budget", before + after):
+            continue
+        amount = f"£{m.group(2)}"
+        if m.group(1):
+            amount = f"{m.group(1).strip().lower()} {amount}"
+        per = re.search(r"\bper (visit|day|session|night|hour|week|month)", after)
+        if per:
+            amount += f"/{per.group(1)}"
+        elif "voucher" in after or "voucher" in before[-25:]:
+            amount += " voucher"
+        if amount not in found:
+            found.append(amount)
+    return " + ".join(found[:2])
+
+
+def time_commitment(text: str) -> str:
+    bits = []
+    m = VISITS_RE.search(text)
+    if m and (_num(m.group(1)) or 0) > 0:
+        n = _num(m.group(1))
+        kind = "session" if "session" in m.group(0).lower() else "visit"
+        bits.append(f"{n} {kind}{'s' if n != 1 else ''}")
+    m = DURATION_RE.search(text) or DURATION_ADJ_RE.search(text)
+    if m:
+        n = _num(m.group(1))
+        unit = {"day": "day", "week": "wk", "month": "mo", "year": "yr"}[m.group(2).lower()]
+        if n:
+            bits.append(f"over {n} {unit}{'s' if n != 1 and unit != 'mo' else ''}")
+    for m in VISIT_LEN_RE.finditer(text):
+        ctx = text[max(0, m.start() - 60): m.end() + 40].lower()
+        if not re.search(r"visit|session|each|appointment|take|last|spend", ctx):
+            continue
+        hi = m.group(2) or m.group(1)
+        unit = "h" if m.group(3).lower().startswith("h") else "min"
+        lo = m.group(1).lower().replace("half an", "0.5").replace("half a", "0.5")
+        lo = str(_num(lo) or lo) if not re.match(r"[\d.]+$", lo) else lo
+        span = f"{lo}–{hi}" if m.group(2) else lo
+        bits.append(f"~{span} {unit} each")
+        break
+    nights = [_num(m.group(1)) for m in OVERNIGHT_RE.finditer(text) if m.group(1)]
+    nights = [n for n in nights if n]
+    if nights and max(nights) > 1:
+        bits.append(f"{max(nights)} nights in")
+    elif nights or OVERNIGHT_RE.search(text):
+        bits.append("overnight stay")
+    return ", ".join(bits)
+
+
+def commitment_snapshot(text: str, item: dict, intervention_types: list[str] | None = None) -> dict:
+    """Heuristic pay / time / procedures / risk summary from free text."""
+    text = text or ""
+    procs, weight = [], 0
+    for label, rx, w in PROCEDURE_RES:
+        if rx.search(text):
+            if label == "biopsy" and "muscle biopsy" in procs:
+                continue
+            procs.append(label)
+            weight = max(weight, w)
+    types = {t.upper() for t in intervention_types or []}
+    if types & {"DRUG", "BIOLOGICAL"} and "study drug" not in procs:
+        procs.insert(0, "study drug")
+        weight = max(weight, 2)
+    if "RADIATION" in types:
+        weight = max(weight, 2)
+    if "study drug" in procs and is_phase1(item.get("phases", [])):
+        weight = 3
+    evidence = " ".join(item.get("pay_evidence") or [])
+    pay = pay_amount(evidence)
+    if not pay and re.search(r"voucher|gift card", evidence, re.I):
+        pay = "voucher (amount not stated)"
+    return {
+        "pay": pay,
+        "time": time_commitment(text),
+        "involves": procs[:5],
+        "risk": RISK_LABEL[weight] if procs else "",
+    }
+
+
+def snapshot_line(it: dict) -> str:
+    snap = it.get("snapshot") or {}
+    pay = snap.get("pay")
+    bits = [f"💷 {pay}" if pay else PAY_FALLBACK[it["tier"]]]
+    if snap.get("time"):
+        bits.append(f"⏱ {snap['time']}")
+    if snap.get("involves"):
+        bits.append(f"🔬 {', '.join(snap['involves'])}")
+    if snap.get("risk"):
+        bits.append(snap["risk"])
+    return " · ".join(bits)
+
+
+# ---------------------------------------------------------------------------
 # ClinicalTrials.gov
 # ---------------------------------------------------------------------------
 
@@ -481,6 +648,11 @@ def ctgov_normalise(study: dict) -> dict | None:
     interventions = [
         clean(f"{i.get('name', '')}") for i in arms.get("interventions", []) or []
     ]
+    intervention_types = [i.get("type", "") for i in arms.get("interventions", []) or []]
+    arm_text = " ".join(
+        [i.get("description") or "" for i in arms.get("interventions", []) or []]
+        + [a.get("description") or "" for a in arms.get("armGroups", []) or []]
+    )
     title = ident.get("briefTitle") or ident.get("officialTitle") or nct
     core_text = " | ".join(
         [title, ident.get("officialTitle") or "", ident.get("acronym") or ""]
@@ -537,6 +709,13 @@ def ctgov_normalise(study: dict) -> dict | None:
     item["pay_evidence"] = evidence
     item["tier"] = assign_tier(item, evidence, expenses)
     item["topics"] = match_topics(core_text, all_text, item["tier"] in PAYISH_TIERS)
+    detailed = desc.get("detailedDescription") or ""
+    item["snapshot"] = commitment_snapshot(" ".join([summary, detailed, arm_text]), item,
+                                           intervention_types)
+    item["details"] = clean(
+        f"{clean(summary, 350)} {clean(detailed, 450)} "
+        f"Interventions: {'; '.join(f'{t}: {n}' for t, n in zip(intervention_types, interventions))}",
+        950)
     return item
 
 
@@ -737,7 +916,25 @@ def isrctn_normalise(trial, today: dt.date) -> dict | None:
     item["pay_evidence"] = evidence
     item["tier"] = assign_tier(item, evidence, expenses)
     item["topics"] = match_topics(core_text, all_text, item["tier"] in PAYISH_TIERS)
+
+    involve = lay_section(lay, "What does the study involve?",
+                          "What are the possible benefits and risks")
+    risks = lay_section(lay, "What are the possible benefits and risks of participating?",
+                        "Where is the study run from?")
+    itypes = [(x.text or "").strip().upper() for x in _iter_local(trial, "interventionType")]
+    item["snapshot"] = commitment_snapshot(
+        " ".join([involve, risks] + interventions), item, itypes)
+    item["details"] = clean(f"Involves: {clean(involve, 600)} Risks/benefits: {clean(risks, 320)}",
+                            950)
     return item
+
+
+def lay_section(lay: str, start: str, end: str) -> str:
+    i = lay.find(start)
+    if i < 0:
+        return ""
+    j = lay.find(end, i + len(start))
+    return lay[i + len(start): j if j > 0 else None].strip()
 
 
 # ---------------------------------------------------------------------------
@@ -765,6 +962,14 @@ def merge_duplicates(items: list[dict]) -> list[dict]:
                     it["ages"] = other.get("ages", "")
                 if TIER_ORDER.index(other["tier"]) < TIER_ORDER.index(it["tier"]):
                     it["tier"], it["pay_evidence"] = other["tier"], other["pay_evidence"]
+                mine, theirs = it.get("snapshot") or {}, other.get("snapshot") or {}
+                for key in ("pay", "time"):
+                    mine[key] = mine.get(key) or theirs.get(key, "")
+                mine["involves"] = list(dict.fromkeys(
+                    (mine.get("involves") or []) + (theirs.get("involves") or [])))[:5]
+                risks = [r for r in (mine.get("risk"), theirs.get("risk")) if r]
+                mine["risk"] = max(risks, key=list(RISK_LABEL.values()).index) if risks else ""
+                it["snapshot"] = mine
                 it["topics"] = match_topics(it["_core"], it["_all"], it["tier"] in PAYISH_TIERS)
     return [it for it in items if it["id"].upper() not in drop]
 
@@ -894,17 +1099,19 @@ def describe(it: dict, number: int, labels: dict) -> str:
     elif it.get("updated"):
         bits.append(f"updated {short_date(it['last_updated'])}")
     line = (f"**{number}. {clean(it['title'], 95)}**\n"
-            f"{' · '.join(bits)} · [{it['id']}]({it['url']})")
+            f"{' · '.join(bits)} · [{it['id']}]({it['url']})\n"
+            f"{snapshot_line(it)}")
     if it.get("flags"):
         line += f"\n⚠️ exclusions mention: {', '.join(it['flags'])}"
-    if it["pay_evidence"]:
-        line += f"\n_“{clean(it['pay_evidence'][0], 150)}”_"
     return line
 
 
 def describe_short(it: dict, labels: dict) -> str:
     tags = [labels.get(t, t) for t in it["topics"]]
-    if it["tier"] in {"paid", "likely_paid"}:
+    pay = (it.get("snapshot") or {}).get("pay")
+    if pay:
+        tags.append(f"💷 {pay}")
+    elif it["tier"] in {"paid", "likely_paid"}:
         tags.append("💷")
     if it.get("flags"):
         tags.append("⚠️")
@@ -940,7 +1147,7 @@ def render_markdown(items: list[dict], sources: dict, since: dt.date, today: dt.
     """Slack digest. Shrinks the lower sections until it fits in one message."""
     sec = build_sections(items)
     labels = {t["key"]: t["label"] for t in (topics if topics is not None else TOPICS)}
-    caps = {"payish": 10, "topical": 10, "other_new": max_other, "standing": max_standing}
+    caps = {"payish": 8, "topical": 8, "other_new": max_other, "standing": max_standing}
 
     def render() -> str:
         hidden = (f" · {sec['hidden']} hidden (outside your age/sex)" if sec["hidden"] else "")

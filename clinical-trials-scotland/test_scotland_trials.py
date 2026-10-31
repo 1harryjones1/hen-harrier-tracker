@@ -209,6 +209,41 @@ class Profile(unittest.TestCase):
         self.assertIn("1 hidden", md)
 
 
+class Snapshot(unittest.TestCase):
+    def test_pay_amount(self):
+        self.assertEqual(st.pay_amount("Participants will receive £150 for completing it."),
+                         "£150")
+        self.assertEqual(st.pay_amount("we will offer £20 vouchers on day 5"), "£20 voucher")
+        self.assertEqual(st.pay_amount("You will be paid £25 per visit."), "£25/visit")
+        self.assertEqual(st.pay_amount("You can earn up to £450 in total."), "up to £450")
+        self.assertEqual(st.pay_amount("Migraine costs the NHS £150 million a year."), "")
+
+    def test_time_commitment(self):
+        t = st.time_commitment("You will attend four study visits over 12 weeks. "
+                               "Each visit lasts about 3 hours.")
+        self.assertEqual(t, "4 visits, over 12 wks, ~3 h each")
+        self.assertIn("5 nights in", st.time_commitment("You will stay in the unit for 5 nights."))
+        self.assertIn("overnight stay", st.time_commitment("One visit includes an overnight stay."))
+        self.assertEqual(st.time_commitment("Complete an online questionnaire."), "")
+
+    def test_involvement_and_risk(self):
+        item = {"phases": [], "pay_evidence": []}
+        snap = st.commitment_snapshot("We take muscle biopsies and blood samples.", item)
+        self.assertEqual(snap["involves"], ["muscle biopsy", "blood tests"])
+        self.assertEqual(snap["risk"], "🔴 higher risk")
+        snap = st.commitment_snapshot("Participants complete a questionnaire.", item)
+        self.assertEqual(snap["risk"], "🟢 low risk")
+        snap = st.commitment_snapshot("Single doses of the drug or placebo.",
+                                      {"phases": ["PHASE1"], "pay_evidence": []}, ["DRUG"])
+        self.assertEqual(snap["risk"], "🔴 higher risk")
+
+    def test_snapshot_line(self):
+        it = {"tier": "likely_paid", "snapshot": {"pay": "", "time": "2 visits",
+                                                    "involves": ["MRI"], "risk": "🟢 low risk"}}
+        self.assertEqual(st.snapshot_line(it), "💷 probably paid (phase 1/industry), amount not "
+                         "stated · ⏱ 2 visits · 🔬 MRI · 🟢 low risk")
+
+
 class ClinicalTrialsGov(unittest.TestCase):
     def test_normalise_scottish_phase1(self):
         it = st.ctgov_normalise(ctgov_study())
