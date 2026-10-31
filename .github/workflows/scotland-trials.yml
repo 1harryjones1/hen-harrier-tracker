@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Unit tests (offline)
+        run: cd clinical-trials-scotland && python -m unittest -v
       - name: Probe sources (temporary)
         if: hashFiles('clinical-trials-scotland/probe.sh') != ''
         run: bash clinical-trials-scotland/probe.sh
