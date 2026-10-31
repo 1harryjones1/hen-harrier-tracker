@@ -90,21 +90,24 @@ PAY_RE = re.compile(
 # Matches that are about something else ("paid employment", "payment by results").
 PAY_FALSE_POSITIVE_RE = re.compile(
     r"paid (?:employment|work|job|carer|staff)|payments? by results|unpaid|paid attention"
-    r"|attention (?:is |will be |must be )?paid|co-?payments?|private(?:ly)? paid", re.I
+    r"|attention (?:is |will be |must be )?paid|co-?payments?|private(?:ly)? paid"
+    r"|pre-?paid|reply-paid|postage|freepost|paid for by|paid by the (?:NHS|sponsor|study)",
+    re.I
 )
 EXPENSES_RE = re.compile(
     r"(?:travel|out[- ]of[- ]pocket|reasonable|parking) (?:costs|expenses)|reimburs", re.I
 )
 
-TIER_ORDER = ["paid", "likely_paid", "healthy", "expenses", "patients"]
+TIER_ORDER = ["paid", "likely_paid", "healthy", "paid_patients", "expenses", "patients"]
 TIER_LABEL = {
-    "paid": "💷 payment mentioned",
-    "likely_paid": "💷 healthy volunteers, phase 1/industry (usually paid)",
+    "paid": "💷 paid, healthy volunteers",
+    "likely_paid": "💷 healthy volunteers, phase 1/industry (often paid)",
     "healthy": "🟡 healthy volunteers (pay not stated)",
-    "expenses": "expenses covered",
-    "patients": "patients",
+    "paid_patients": "💷 paid, but only for people with the condition",
+    "expenses": "patients, expenses covered",
+    "patients": "patients only",
 }
-PAYISH_TIERS = {"paid", "likely_paid", "healthy"}
+PAYISH_TIERS = {"paid", "likely_paid", "healthy"}  # open to healthy volunteers
 
 # ---------------------------------------------------------------------------
 # Scotland geography
@@ -244,13 +247,33 @@ def phase_label(phases: list[str]) -> str:
     return "/".join(out)
 
 
+def age_label(min_age: str | None, max_age: str | None) -> str:
+    """'18 Years', '65 Years' -> '18–65'; only returned when it narrows things."""
+    def years(v):
+        m = re.match(r"\s*(\d+)\s*(year|yr)?", v or "", re.I)
+        if not m:
+            return None
+        n = int(m.group(1))
+        return n if m.group(2) or not re.search(r"month|week|day", v or "", re.I) else 0
+    lo, hi = years(min_age), years(max_age)
+    if lo and lo > 18 and hi:
+        return f"ages {lo}–{hi}"
+    if lo and lo > 18:
+        return f"ages {lo}+"
+    if hi and hi < 100:
+        return f"ages {lo or 18}–{hi}" if (lo or 0) >= 16 else f"up to age {hi}"
+    return ""
+
+
 def assign_tier(item: dict, pay_evidence: list[str], expenses: bool) -> str:
-    if pay_evidence:
-        return "paid"
     if item.get("healthy_volunteers"):
+        if pay_evidence:
+            return "paid"
         if is_phase1(item.get("phases", [])) or item.get("sponsor_class") == "INDUSTRY":
             return "likely_paid"
         return "healthy"
+    if pay_evidence:
+        return "paid_patients"
     if expenses:
         return "expenses"
     return "patients"
@@ -276,6 +299,7 @@ def ctgov_query(params: dict) -> list[dict]:
     base = {
         "filter.overallStatus": "RECRUITING,NOT_YET_RECRUITING",
         "pageSize": "1000",
+        "countTotal": "true",
         "fields": CTGOV_FIELDS,
     }
     base.update(params)
@@ -293,6 +317,9 @@ def ctgov_query(params: dict) -> list[dict]:
                 continue
             raise
         studies.extend(data.get("studies", []))
+        if "totalCount" in data:
+            print(f"[ctgov] {data['totalCount']} studies for {params}", file=sys.stderr)
+        base["countTotal"] = "false"
         token = data.get("nextPageToken")
         if not token:
             break
@@ -401,7 +428,7 @@ def ctgov_normalise(study: dict) -> dict | None:
         "conditions": cond.get("conditions") or [],
         "interventions": [i for i in interventions if i],
         "sex": elig.get("sex", ""),
-        "ages": f"{elig.get('minimumAge', '') or ''}–{elig.get('maximumAge', '') or ''}".strip("–"),
+        "ages": age_label(elig.get("minimumAge"), elig.get("maximumAge")),
         "summary": clean(summary, 400),
         "contact": contact,
         "topics": match_topics(core_text, all_text),
@@ -451,7 +478,12 @@ def _iter_local(el, name: str):
 def isrctn_query(q: str, limit: int) -> list:
     raw = http_get(ISRCTN_URL, {"q": q, "limit": str(limit)})
     root = ET.fromstring(raw)
-    return [t for t in _iter_local(root, "trial")]
+    trials = [t for t in _iter_local(root, "trial")]
+    total = root.get("totalCount")
+    print(f"[isrctn] {len(trials)} of {total} records for: {q}", file=sys.stderr)
+    if total and total.isdigit() and int(total) > len(trials):
+        print("[isrctn] warning: results truncated, raise the limit", file=sys.stderr)
+    return trials
 
 
 def isrctn_fetch(today: dt.date) -> list[dict]:
@@ -579,7 +611,7 @@ def isrctn_normalise(trial, today: dt.date) -> dict | None:
         "conditions": [c for c in conditions if c],
         "interventions": [clean(i, 120) for i in drug_names + interventions if i][:3],
         "sex": _text(trial, "participants/gender"),
-        "ages": ages,
+        "ages": "older adults" if ages.lower() == "senior" else "",
         "summary": clean(summary, 400),
         "contact": contact,
         "topics": match_topics(core_text, all_text),
@@ -647,6 +679,8 @@ def describe(it: dict, number: int) -> str:
     if it["topics"]:
         bits.append(", ".join(TOPIC_LABELS[t] for t in it["topics"]))
     bits.append(TIER_LABEL[it["tier"]])
+    if it.get("ages"):
+        bits.append(it["ages"])
     if (it.get("sex") or "").upper() in {"FEMALE", "MALE"}:
         bits.append(f"{it['sex'].lower()} only")
     if it["status"] == "NOT_YET_RECRUITING":
@@ -682,7 +716,7 @@ def build_sections(items: list[dict]) -> dict[str, list[dict]]:
     standing = sorted(
         [it for it in items if not (it["new"] or it["updated"])
          and (it["topics"] or it["tier"] in {"paid", "likely_paid"})],
-        key=sort_key,
+        key=lambda it: (not it["topics"], sort_key(it)),
     )
     return {"payish": payish, "topical": topical, "other_new": other_new,
             "standing": standing, "week": week}

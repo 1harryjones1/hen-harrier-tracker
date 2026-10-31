@@ -26,16 +26,24 @@ jobs:
           python-version: "3.12"
       - name: Unit tests (offline)
         run: cd clinical-trials-scotland && python -m unittest -v
-      - name: Probe sources (temporary)
-        if: hashFiles('clinical-trials-scotland/probe.sh') != ''
-        run: bash clinical-trials-scotland/probe.sh
       - name: Run scraper
-        if: hashFiles('clinical-trials-scotland/scotland_trials.py') != ''
         run: |
           mkdir -p out
           python clinical-trials-scotland/scotland_trials.py --days 7 \
             --json out/trials.json --markdown out/digest.md
           cat out/digest.md
+      - name: List healthy-volunteer and topic studies
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("out/trials.json"))
+          rows = [s for s in d["studies"] if s["topics"] or s["tier"] in ("paid", "likely_paid", "healthy")]
+          print(len(rows), "healthy-volunteer or topic studies open in Scotland")
+          for s in rows:
+              cities = ",".join(sorted({x["city"] for x in s["sites"] if x["city"]}))[:40]
+              ev = (s["pay_evidence"] or [""])[0][:110]
+              print(f"{s['tier']:<13} {','.join(s['topics']):<20} {s['id']:<15} {cities:<40} {s['ages']:<12} {s['title'][:80]} | {ev}")
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -57,12 +57,33 @@ class PaySignals(unittest.TestCase):
 
     def test_false_positives(self):
         for text in [
+            "Samples are returned using the pre-paid and addressed postage box.",
+            "The study is paid for by the NIHR.",
             "Exclusion: participants in paid employment for more than 30 hours.",
             "Patients will use an incentive spirometer after surgery.",
             "Particular attention will be paid to adverse events.",
         ]:
             ev, _ = st.pay_signals(text)
             self.assertEqual(ev, [], text)
+
+
+class Tiers(unittest.TestCase):
+    def test_patient_only_payment(self):
+        it = {"healthy_volunteers": False, "phases": [], "sponsor_class": "OTHER"}
+        self.assertEqual(st.assign_tier(it, ["£20 voucher"], False), "paid_patients")
+
+    def test_healthy_volunteer_payment(self):
+        it = {"healthy_volunteers": True, "phases": [], "sponsor_class": "OTHER"}
+        self.assertEqual(st.assign_tier(it, ["£20 voucher"], False), "paid")
+        self.assertEqual(st.assign_tier(it, [], False), "healthy")
+        it["phases"] = ["Phase I/II"]
+        self.assertEqual(st.assign_tier(it, [], False), "likely_paid")
+
+    def test_age_label(self):
+        self.assertEqual(st.age_label("65 Years", None), "ages 65+")
+        self.assertEqual(st.age_label("18 Years", "45 Years"), "ages 18–45")
+        self.assertEqual(st.age_label("18 Years", None), "")
+        self.assertEqual(st.age_label("2 Years", "17 Years"), "up to age 17")
 
 
 class Topics(unittest.TestCase):
