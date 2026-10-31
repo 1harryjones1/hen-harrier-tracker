@@ -1,0 +1,42 @@
+name: Scotland trials scraper check
+
+# Runs the Scotland clinical-trials scraper against the live registries
+# whenever its code changes, and on demand. It only reads public APIs and
+# uploads the results as a build artifact; it never commits or posts anything.
+# The weekly Slack digest itself is sent by a Claude scheduled task.
+
+on:
+  push:
+    paths:
+      - "clinical-trials-scotland/**"
+      - ".github/workflows/scotland-trials.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe sources (temporary)
+        if: hashFiles('clinical-trials-scotland/probe.sh') != ''
+        run: bash clinical-trials-scotland/probe.sh
+      - name: Run scraper
+        if: hashFiles('clinical-trials-scotland/scotland_trials.py') != ''
+        run: |
+          mkdir -p out
+          python clinical-trials-scotland/scotland_trials.py --days 7 \
+            --json out/trials.json --markdown out/digest.md
+          cat out/digest.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scotland-trials
+          path: out/
+          if-no-files-found: ignore
