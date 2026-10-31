@@ -72,7 +72,7 @@ DEFAULT_TOPICS = [
     {"key": "exercise", "label": "Exercise", "scope": "core", "hv_only": True,
      "regex": r"\bexercis|physical activity|interval training|\bHIIT\b|aerobic|\bVO2|zone 2"
               r"|cardiorespiratory|endurance|\bcycling\b|\brunning\b"},
-    {"key": "cold_heat", "label": "Cold/heat", "scope": "all",
+    {"key": "cold_heat", "label": "Cold/heat", "scope": "core",
      "regex": r"cold[- ](?:water|exposure|immersion|acclimati|shower|plunge|stress)|ice[- ]bath"
               r"|cryotherap|\bsauna|heat (?:therapy|exposure|acclimati|stress|stimulus)"
               r"|hot[- ]water immersion|passive heating|thermoregulat|thermogenesis"
@@ -769,6 +769,18 @@ def merge_duplicates(items: list[dict]) -> list[dict]:
     return [it for it in items if it["id"].upper() not in drop]
 
 
+# Titles that make a study single-sex even when the registry says "all".
+SEX_TITLE_RE = {
+    "male": re.compile(
+        r"pregnan|breast-?fe|lactat|maternal|postpartum|post-partum|menopaus|endometriosis"
+        r"|(?<!men and )(?<!men & )\bwomen\b|\bmothers?\b|ovari|\bovary|uterine|uterus"
+        r"|intrauterine|cervical (?:cancer|screening)|contracepti|\bPCOS\b|gynae|gyne", re.I),
+    "female": re.compile(
+        r"prostat|(?<!women and )(?<!women & )\bmen\b(?! and women)|testic|erectile"
+        r"|\bfathers?\b", re.I),
+}
+
+
 def load_profile(path: str | None) -> dict:
     if not path:
         return {}
@@ -808,6 +820,8 @@ def apply_profile(items: list[dict], profile: dict) -> list[dict]:
         study_sex = (it.get("sex") or "").lower()
         if sex in {"male", "female"} and study_sex in {"male", "female"} and study_sex != sex:
             reasons.append(f"{study_sex} only")
+        elif sex in SEX_TITLE_RE and SEX_TITLE_RE[sex].search(it.get("title", "")):
+            reasons.append("other sex (from title)")
         it["eligible"] = not reasons
         it["ineligible_reason"] = ", ".join(reasons)
         exclusion = it.get("_exclusion") or ""

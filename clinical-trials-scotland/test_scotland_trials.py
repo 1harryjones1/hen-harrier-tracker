@@ -193,6 +193,13 @@ class Profile(unittest.TestCase):
         self.assertEqual(ok["nearest"], "Edinburgh")
         self.assertTrue(30 <= ok["miles"] <= 40)
 
+    def test_sex_from_title(self):
+        mums = self.item(title="High fibre diet in breastfeeding mothers")
+        both = self.item(title="Sleep in men and women")
+        st.apply_profile([mums, both], self.PROFILE)
+        self.assertFalse(mums["eligible"])
+        self.assertTrue(both["eligible"])
+
     def test_ineligible_hidden_from_digest(self):
         old = self.item(min_age=65, id="NCT00000001", aliases=[])
         st.apply_profile([old], self.PROFILE)
