@@ -1,0 +1,12 @@
+{
+  "age": 30,
+  "sex": "female",
+  "home": {"name": "Perth", "lat": 56.40, "lon": -3.43},
+  "extra_topics": [
+    {"key": "tinnitus", "label": "Tinnitus", "regex": "tinnitus", "scope": "core"}
+  ],
+  "exclusion_flags": [
+    {"label": "smokers", "regex": "smok(?:er|ing)|tobacco|nicotine"},
+    {"label": "regular medication", "regex": "regular medication|prescription medication|concomitant medication"}
+  ]
+}

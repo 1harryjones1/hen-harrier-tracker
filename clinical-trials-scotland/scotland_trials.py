@@ -13,6 +13,21 @@ Sources (no API keys needed):
 Standard library only, so it runs anywhere with Python 3.9+:
 
     python3 scotland_trials.py --days 7 --json trials.json --markdown digest.md
+
+An optional --profile JSON file personalises it (kept out of this repo):
+
+    {
+      "age": 30, "sex": "male",
+      "home": {"name": "Perth", "lat": 56.39, "lon": -3.43},
+      "extra_topics": [{"key": "tinnitus", "label": "Tinnitus",
+                        "regex": "tinnitus", "scope": "core", "hv_only": false}],
+      "exclusion_flags": [{"label": "regular meds",
+                           "regex": "regular medication|prescription medication"}]
+    }
+
+age/sex hide studies you can't join, home adds distances and sorts nearer
+studies first, extra_topics are added to the built-in topics, and
+exclusion_flags are searched for in each study's exclusion criteria.
 """
 
 from __future__ import annotations
@@ -20,6 +35,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import math
 import re
 import sys
 import time
@@ -38,49 +54,75 @@ HTTP_TIMEOUT = 90
 # Topics and payment signals
 # ---------------------------------------------------------------------------
 
-# (key, label, regex, scope). "core" scope matches titles, conditions,
-# keywords and intervention names only (precise); "all" also searches the
-# summary, for drug names that are specific enough not to need guarding.
-TOPICS = [
-    ("migraine", "Migraine", r"\bmigraine|\bheadache", "core"),
-    (
-        "muscle",
-        "Muscle/gym",
-        r"muscle\W+(?:\w+\W+){0,3}?(?:hypertroph|growth|mass|protein synthesis|strength|size)"
-        r"|hypertroph\w*\W+(?:\w+\W+){0,3}?muscle|resistance[- ](?:exercise|training)"
-        r"|strength training|weight[- ]?(?:lifting|training)|\bcreatine\b|\bwhey\b"
-        r"|protein supplement|muscle protein",
-        "core",
-    ),
-    ("mdma", "MDMA", r"\bMDMA\b|methylenedioxymethamphetamine|midomafetamine", "all"),
-    (
-        "cannabis",
-        "Cannabis",
-        r"cannabi|\bCBD\b|\bTHC\b|marijuana|tetrahydrocannabinol|nabiximols|sativex"
-        r"|dronabinol|nabilone",
-        "all",
-    ),
-    ("lsd", "LSD", r"\bLSD\b|lysergic acid|lysergide|\bMM-?120\b", "all"),
-    ("psilocybin", "Psilocybin", r"psilocybin|psilocin|magic mushroom|\bCOMP ?360\b", "all"),
-    ("ketamine", "Ketamine", r"ketamine", "all"),
-    (
-        "psychedelic",
-        "Psychedelics",
-        r"psychedelic|\bDMT\b|dimethyltryptamine|5-MeO|ayahuasca|mescaline|ibogaine"
-        r"|hallucinogen",
-        "all",
-    ),
-    (
-        "anxiety",
-        "Anxiety",
-        r"\banxiety|\banxious|panic disorder|social phobia|generali[sz]ed anxiety|\bGAD\b"
-        r"|\bphobia",
-        "core",
-    ),
+# Built-in topics. "core" scope matches titles, conditions, keywords and
+# intervention names only (precise); "all" also searches the summary, for terms
+# specific enough not to need guarding. hv_only topics (lifestyle ones) only
+# count when the study takes healthy volunteers: a patients-only rehab trial
+# with "exercise" in the title isn't something you can sign up for.
+DEFAULT_TOPICS = [
+    {"key": "migraine", "label": "Migraine", "regex": r"\bmigraine|\bheadache", "scope": "core"},
+    {"key": "anxiety", "label": "Anxiety", "scope": "core",
+     "regex": r"\banxiety|\banxious|panic disorder|social phobia|generali[sz]ed anxiety|\bGAD\b"
+              r"|\bphobia"},
+    {"key": "muscle", "label": "Muscle/gym", "scope": "core", "hv_only": True,
+     "regex": r"muscle\W+(?:\w+\W+){0,3}?(?:hypertroph|growth|mass|protein synthesis|strength|size)"
+              r"|hypertroph\w*\W+(?:\w+\W+){0,3}?muscle|resistance[- ](?:exercise|training)"
+              r"|strength training|weight[- ]?(?:lifting|training)|\bcreatine\b|\bwhey\b"
+              r"|protein supplement|muscle protein"},
+    {"key": "exercise", "label": "Exercise", "scope": "core", "hv_only": True,
+     "regex": r"\bexercis|physical activity|interval training|\bHIIT\b|aerobic|\bVO2|zone 2"
+              r"|cardiorespiratory|endurance|\bcycling\b|\brunning\b"},
+    {"key": "cold_heat", "label": "Cold/heat", "scope": "all",
+     "regex": r"cold[- ](?:water|exposure|immersion|acclimati|shower|plunge|stress)|ice[- ]bath"
+              r"|cryotherap|\bsauna|heat (?:therapy|exposure|acclimati|stress|stimulus)"
+              r"|hot[- ]water immersion|passive heating|thermoregulat|thermogenesis"
+              r"|brown (?:adipose|fat)"},
+    {"key": "hrv_breath", "label": "HRV/breathwork", "scope": "core", "hv_only": True,
+     "regex": r"heart rate variability|\bHRV\b|breath(?:ing|work)\W+(?:\w+\W+){0,2}?"
+              r"(?:training|exercise|technique|intervention|practice)|slow[- ]paced breathing"
+              r"|resonance (?:frequency )?breathing|paced breathing|biofeedback"
+              r"|vag(?:us|al) nerve stimulation|\b[tn]VNS\b|wim hof"},
+    {"key": "sleep", "label": "Sleep", "scope": "core",
+     "regex": r"\bsleep|insomnia|circadian|melatonin|light therapy|bright light|chronotype"},
+    {"key": "nutrition", "label": "Diet/supplements", "scope": "core", "hv_only": True,
+     "regex": r"supplement|\bprotein\b|creatine|caffeine|magnesium|riboflavin|coenzyme Q10"
+              r"|\bCoQ10\b|citicoline|theanine|tyrosine|probiotic|prebiotic|\bfib(?:re|er)\b"
+              r"|\bdiet|fasting|time-restricted|\bmeals?\b|appetite|gut microbio"},
+    {"key": "mind", "label": "Mindfulness/yoga", "scope": "core", "hv_only": True,
+     "regex": r"mindfulness|meditation|\byoga\b|\bNSDR\b|non-sleep deep rest"
+              r"|relaxation training|tai chi|qigong"},
+    {"key": "mdma", "label": "MDMA", "scope": "all",
+     "regex": r"\bMDMA\b|methylenedioxymethamphetamine|midomafetamine"},
+    {"key": "cannabis", "label": "Cannabis", "scope": "all",
+     "regex": r"cannabi|\bCBD\b|\bTHC\b|marijuana|tetrahydrocannabinol|nabiximols|sativex"
+              r"|dronabinol|nabilone"},
+    {"key": "lsd", "label": "LSD", "scope": "all",
+     "regex": r"\bLSD\b|lysergic acid|lysergide|\bMM-?120\b",
+     # "LSD" is also lysosomal storage disease
+     "exclude": r"lysosomal"},
+    {"key": "psilocybin", "label": "Psilocybin", "scope": "all",
+     "regex": r"psilocybin|psilocin|magic mushroom|\bCOMP ?360\b"},
+    {"key": "ketamine", "label": "Ketamine", "regex": r"ketamine", "scope": "all"},
+    {"key": "psychedelic", "label": "Psychedelics", "scope": "all",
+     "regex": r"psychedelic|\bDMT\b|dimethyltryptamine|5-MeO|ayahuasca|mescaline|ibogaine"
+              r"|hallucinogen"},
 ]
-TOPIC_RES = [(k, label, re.compile(rx, re.I), scope) for k, label, rx, scope in TOPICS]
-# Abbreviation clashes: "LSD" is also lysosomal storage disease.
-TOPIC_EXCLUDE = {"lsd": re.compile(r"lysosomal", re.I)}
+# Exclusions that apply whatever the topic list.
+TOPIC_GLOBAL_EXCLUDE = {"sleep": r"apn(?:o)?ea|narcolep"}
+
+
+def compile_topics(topics: list[dict]) -> list[dict]:
+    out = []
+    for t in topics:
+        c = dict(t)
+        c["rx"] = re.compile(t["regex"], re.I)
+        excl = t.get("exclude") or TOPIC_GLOBAL_EXCLUDE.get(t["key"])
+        c["exclude_rx"] = re.compile(excl, re.I) if excl else None
+        out.append(c)
+    return out
+
+
+TOPICS = compile_topics(DEFAULT_TOPICS)
 
 PAY_RE = re.compile(
     r"£\s?\d[\d,.]*|\b\d+\s?GBP\b|\bpaid\b|\bpayments?\b|honorari|voucher"
@@ -124,17 +166,32 @@ SCOTLAND_POLYGON = [
     (-4.9, 54.55), (-5.3, 54.55), (-5.3, 55.27),
 ]
 
-SCOTTISH_PLACES = {
-    "aberdeen", "airdrie", "alloa", "arbroath", "ayr", "bathgate", "bearsden",
-    "bellshill", "broxburn", "cambuslang", "clydebank", "coatbridge", "crosshouse",
-    "cumbernauld", "dalkeith", "dingwall", "dumbarton", "dumfries", "dundee",
-    "dunfermline", "east kilbride", "edinburgh", "elgin", "falkirk", "forfar",
-    "fort william", "galashiels", "glasgow", "glenrothes", "greenock", "hamilton",
-    "inverness", "irvine", "kilmarnock", "kirkcaldy", "kirkwall", "lanark", "larbert",
-    "lerwick", "livingston", "melrose", "midlothian", "motherwell", "musselburgh",
-    "oban", "paisley", "penicuik", "perth", "peterhead", "renfrew", "roslin",
-    "rutherglen", "st andrews", "st. andrews", "stirling", "stornoway", "wishaw",
+# Approximate (lat, lon) for towns that host trial sites, used to recognise
+# Scottish sites and to estimate distance from home when a registry gives a
+# town but no coordinates (ISRCTN).
+CITY_COORDS = {
+    "aberdeen": (57.15, -2.09), "airdrie": (55.87, -3.98), "alloa": (56.12, -3.79),
+    "arbroath": (56.56, -2.58), "ayr": (55.46, -4.63), "bathgate": (55.90, -3.64),
+    "bearsden": (55.92, -4.33), "bellshill": (55.82, -4.02), "broxburn": (55.93, -3.47),
+    "cambuslang": (55.81, -4.16), "clydebank": (55.90, -4.40), "coatbridge": (55.86, -4.02),
+    "crosshouse": (55.62, -4.55), "cumbernauld": (55.95, -3.99), "dalkeith": (55.89, -3.07),
+    "dingwall": (57.60, -4.43), "dumbarton": (55.94, -4.57), "dumfries": (55.07, -3.60),
+    "dundee": (56.46, -2.97), "dunfermline": (56.07, -3.45), "east kilbride": (55.76, -4.18),
+    "edinburgh": (55.95, -3.19), "elgin": (57.65, -3.32), "falkirk": (56.00, -3.78),
+    "forfar": (56.64, -2.89), "fort william": (56.82, -5.11), "galashiels": (55.62, -2.81),
+    "glasgow": (55.86, -4.25), "glenrothes": (56.20, -3.18), "greenock": (55.95, -4.76),
+    "hamilton": (55.78, -4.04), "inverness": (57.48, -4.22), "irvine": (55.61, -4.67),
+    "kilmarnock": (55.61, -4.50), "kirkcaldy": (56.11, -3.16), "kirkwall": (58.98, -2.96),
+    "lanark": (55.67, -3.78), "larbert": (56.02, -3.83), "lerwick": (60.15, -1.14),
+    "livingston": (55.90, -3.52), "lothian": (55.95, -3.19), "melrose": (55.60, -2.72),
+    "midlothian": (55.89, -3.07), "motherwell": (55.79, -3.99), "musselburgh": (55.94, -3.05),
+    "oban": (56.41, -5.47), "paisley": (55.85, -4.42), "penicuik": (55.83, -3.22),
+    "perth": (56.40, -3.43), "peterhead": (57.51, -1.78), "renfrew": (55.87, -4.39),
+    "roslin": (55.86, -3.16), "rutherglen": (55.83, -4.21), "st andrews": (56.34, -2.80),
+    "st. andrews": (56.34, -2.80), "stirling": (56.12, -3.94), "stornoway": (58.21, -6.39),
+    "wishaw": (55.77, -3.92),
 }
+SCOTTISH_PLACES = set(CITY_COORDS)
 SCOTLAND_TEXT_RE = re.compile(
     r"\bscotland\b|\bscottish\b|NHS (?:Lothian|Greater Glasgow|Tayside|Grampian|Highland"
     r"|Fife|Lanarkshire|Ayrshire|Forth Valley|Borders|Dumfries|Shetland|Orkney"
@@ -154,6 +211,14 @@ def point_in_polygon(lon: float, lat: float, poly) -> bool:
             inside = not inside
         j = i
     return inside
+
+
+def miles_between(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    r = 3958.8  # earth radius, miles
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dp, dl = p2 - p1, math.radians(lon2 - lon1)
+    a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 2 * r * math.asin(math.sqrt(a))
 
 
 def place_is_scottish(city: str | None, state: str | None, facility: str | None) -> bool:
@@ -226,13 +291,16 @@ def pay_signals(text: str) -> tuple[list[str], bool]:
     return evidence, expenses
 
 
-def match_topics(core_text: str, all_text: str) -> list[str]:
+def match_topics(core_text: str, all_text: str, healthy: bool = True,
+                 topics: list[dict] | None = None) -> list[str]:
     found = []
-    for key, _label, rx, scope in TOPIC_RES:
-        if key in TOPIC_EXCLUDE and TOPIC_EXCLUDE[key].search(all_text):
+    for t in topics if topics is not None else TOPICS:
+        if t.get("hv_only") and not healthy:
             continue
-        if rx.search(core_text) or (scope == "all" and rx.search(all_text)):
-            found.append(key)
+        if t["exclude_rx"] and t["exclude_rx"].search(core_text + " " + all_text):
+            continue
+        if t["rx"].search(core_text) or (t.get("scope") == "all" and t["rx"].search(all_text)):
+            found.append(t["key"])
     return found
 
 
@@ -251,15 +319,36 @@ def phase_label(phases: list[str]) -> str:
     return "/".join(out)
 
 
-def age_label(min_age: str | None, max_age: str | None) -> str:
-    """'18 Years', '65 Years' -> '18–65'; only returned when it narrows things."""
-    def years(v):
-        m = re.match(r"\s*(\d+)\s*(year|yr)?", v or "", re.I)
-        if not m:
-            return None
-        n = int(m.group(1))
-        return n if m.group(2) or not re.search(r"month|week|day", v or "", re.I) else 0
-    lo, hi = years(min_age), years(max_age)
+def years(value: str | None) -> int | None:
+    """'18 Years' -> 18, '6 Months' -> 0, '' -> None."""
+    m = re.match(r"\s*(\d+)\s*(year|yr)?", value or "", re.I)
+    if not m:
+        return None
+    n = int(m.group(1))
+    return n if m.group(2) or not re.search(r"month|week|day", value or "", re.I) else 0
+
+
+def ages_from_text(text: str) -> tuple[int | None, int | None]:
+    """Best-effort ages from lay text such as 'Adults aged 18-65' or 'over 50'."""
+    t = text or ""
+    m = re.search(r"\b(\d{1,2})\s*(?:-|–|to|and)\s*(\d{2,3})\s*(?:years|yrs|-year|years old)?", t)
+    if m and 0 < int(m.group(1)) < int(m.group(2)) <= 110 and re.search(
+            r"age|aged|years|yrs|adults?", t[max(0, m.start() - 40): m.end() + 20], re.I):
+        return int(m.group(1)), int(m.group(2))
+    m = re.search(r"(?:aged|over|above|older than|at least)\s*(\d{2})\b", t, re.I) or \
+        re.search(r"\b(\d{2})\s*(?:years)?\s*(?:and|or)\s*(?:over|older|above)", t, re.I)
+    lo = int(m.group(1)) if m else None
+    m = re.search(r"(?:under|below|younger than|up to)\s*(?:the age of\s*)?(\d{2})\b", t, re.I)
+    hi = int(m.group(1)) if m else None
+    if lo is not None and hi is not None and hi <= lo:
+        hi = None
+    return lo, hi
+
+
+def age_label(min_age, max_age) -> str:
+    """'18 Years', '65 Years' (or ints) -> 'ages 18–65'; only when it narrows things."""
+    lo = min_age if isinstance(min_age, int) or min_age is None else years(min_age)
+    hi = max_age if isinstance(max_age, int) or max_age is None else years(max_age)
     if lo and lo > 18 and hi:
         return f"ages {lo}–{hi}"
     if lo and lo > 18:
@@ -373,6 +462,8 @@ def ctgov_normalise(study: dict) -> dict | None:
             "facility": loc.get("facility") or "",
             "city": loc.get("city") or "",
             "status": loc.get("status") or "",
+            "lat": gp.get("lat"),
+            "lon": gp.get("lon"),
             "contacts": [
                 {k: c.get(k) for k in ("name", "email", "phone") if c.get(k)}
                 for c in loc.get("contacts", []) or []
@@ -422,7 +513,7 @@ def ctgov_normalise(study: dict) -> dict | None:
         "first_posted": (status.get("studyFirstPostDateStruct") or {}).get("date"),
         "last_updated": (status.get("lastUpdatePostDateStruct") or {}).get("date"),
         "start_date": (status.get("startDateStruct") or {}).get("date"),
-        "sites": [{"facility": x["facility"], "city": x["city"], "status": x["status"]}
+        "sites": [{k: x[k] for k in ("facility", "city", "status", "lat", "lon")}
                   for x in open_sites],
         "healthy_volunteers": bool(elig.get("healthyVolunteers")),
         "phases": design.get("phases") or [],
@@ -432,15 +523,27 @@ def ctgov_normalise(study: dict) -> dict | None:
         "conditions": cond.get("conditions") or [],
         "interventions": [i for i in interventions if i],
         "sex": elig.get("sex", ""),
-        "ages": age_label(elig.get("minimumAge"), elig.get("maximumAge")),
+        "min_age": years(elig.get("minimumAge")),
+        "max_age": years(elig.get("maximumAge")),
         "summary": clean(summary, 400),
         "contact": contact,
-        "topics": match_topics(core_text, all_text),
+        # working text for topic/eligibility matching (not written to JSON)
+        "_core": core_text,
+        "_all": all_text,
+        "_exclusion": exclusion_section(elig.get("eligibilityCriteria") or ""),
     }
+    item["ages"] = age_label(item["min_age"], item["max_age"])
     evidence, expenses = pay_signals(pay_text)
     item["pay_evidence"] = evidence
     item["tier"] = assign_tier(item, evidence, expenses)
+    item["topics"] = match_topics(core_text, all_text, item["tier"] in PAYISH_TIERS)
     return item
+
+
+def exclusion_section(criteria: str) -> str:
+    """The exclusion part of a ClinicalTrials.gov eligibility block (or all of it)."""
+    m = re.search(r"exclusion criteria\s*:?", criteria, re.I)
+    return criteria[m.end():] if m else criteria
 
 
 # ---------------------------------------------------------------------------
@@ -543,7 +646,8 @@ def isrctn_normalise(trial, today: dt.date) -> dict | None:
         if country.lower() not in UK_COUNTRIES:
             continue
         if country.lower() == "scotland" or place_is_scottish(city, _text(centre, "state"), name):
-            sites.append({"facility": name, "city": city, "status": ""})
+            lat, lon = CITY_COORDS.get(city.strip().lower(), (None, None))
+            sites.append({"facility": name, "city": city, "status": "", "lat": lat, "lon": lon})
     if not sites:
         return None
 
@@ -596,6 +700,11 @@ def isrctn_normalise(trial, today: dt.date) -> dict | None:
     if m:
         summary = m.group(1)
 
+    m = re.search(r"Who can participate\?\s*(.+?)(?:What does the study involve\?|$)", lay, re.S)
+    min_age, max_age = ages_from_text(m.group(1) if m else "")
+    if min_age is None and ages.lower() == "senior":
+        min_age = 65
+
     item = {
         "source": "ISRCTN",
         "id": ident,
@@ -615,14 +724,19 @@ def isrctn_normalise(trial, today: dt.date) -> dict | None:
         "conditions": [c for c in conditions if c],
         "interventions": [clean(i, 120) for i in drug_names + interventions if i][:3],
         "sex": _text(trial, "participants/gender"),
-        "ages": "older adults" if ages.lower() == "senior" else "",
+        "min_age": min_age,
+        "max_age": max_age,
         "summary": clean(summary, 400),
         "contact": contact,
-        "topics": match_topics(core_text, all_text),
+        "_core": core_text,
+        "_all": all_text,
+        "_exclusion": _text(trial, "participants/exclusion"),
     }
+    item["ages"] = age_label(min_age, max_age)
     evidence, expenses = pay_signals(lay + " " + _text(trial, "participants/inclusion"))
     item["pay_evidence"] = evidence
     item["tier"] = assign_tier(item, evidence, expenses)
+    item["topics"] = match_topics(core_text, all_text, item["tier"] in PAYISH_TIERS)
     return item
 
 
@@ -644,11 +758,73 @@ def merge_duplicates(items: list[dict]) -> list[dict]:
                 drop.add(alias)
                 it["also"] = other["url"]
                 it["healthy_volunteers"] = it["healthy_volunteers"] or other["healthy_volunteers"]
-                it["topics"] = sorted(set(it["topics"]) | set(other["topics"]),
-                                      key=[t[0] for t in TOPICS].index)
+                for key in ("_core", "_all", "_exclusion"):
+                    it[key] = (it.get(key) or "") + " | " + (other.get(key) or "")
+                if it.get("min_age") is None and it.get("max_age") is None:
+                    it["min_age"], it["max_age"] = other.get("min_age"), other.get("max_age")
+                    it["ages"] = other.get("ages", "")
                 if TIER_ORDER.index(other["tier"]) < TIER_ORDER.index(it["tier"]):
                     it["tier"], it["pay_evidence"] = other["tier"], other["pay_evidence"]
+                it["topics"] = match_topics(it["_core"], it["_all"], it["tier"] in PAYISH_TIERS)
     return [it for it in items if it["id"].upper() not in drop]
+
+
+def load_profile(path: str | None) -> dict:
+    if not path:
+        return {}
+    with open(path, encoding="utf-8") as f:
+        profile = json.load(f)
+    for t in profile.get("extra_topics", []):
+        if not {"key", "label", "regex"} <= set(t):
+            raise ValueError(f"extra topic needs key, label and regex: {t}")
+        re.compile(t["regex"])
+    for flag in profile.get("exclusion_flags", []):
+        re.compile(flag["regex"])
+    return profile
+
+
+def apply_profile(items: list[dict], profile: dict) -> list[dict]:
+    """Re-tags topics with the full topic list, then marks eligibility, exclusion
+    flags and distance. Returns the compiled topic list in use."""
+    topics = TOPICS
+    if profile.get("extra_topics"):
+        extra_keys = {t["key"] for t in profile["extra_topics"]}
+        topics = compile_topics([t for t in DEFAULT_TOPICS if t["key"] not in extra_keys]
+                                + profile["extra_topics"])
+    flags = [(f["label"], re.compile(f["regex"], re.I))
+             for f in profile.get("exclusion_flags", [])]
+    age, sex = profile.get("age"), (profile.get("sex") or "").lower()
+    home = profile.get("home") or {}
+
+    for it in items:
+        it["topics"] = match_topics(it.get("_core", ""), it.get("_all", ""),
+                                    it["tier"] in PAYISH_TIERS, topics)
+        reasons = []
+        if isinstance(age, int):
+            if it.get("min_age") is not None and age < it["min_age"]:
+                reasons.append(f"min age {it['min_age']}")
+            if it.get("max_age") is not None and age > it["max_age"]:
+                reasons.append(f"max age {it['max_age']}")
+        study_sex = (it.get("sex") or "").lower()
+        if sex in {"male", "female"} and study_sex in {"male", "female"} and study_sex != sex:
+            reasons.append(f"{study_sex} only")
+        it["eligible"] = not reasons
+        it["ineligible_reason"] = ", ".join(reasons)
+        exclusion = it.get("_exclusion") or ""
+        it["flags"] = [label for label, rx in flags if rx.search(exclusion)]
+
+        it["miles"], it["nearest"] = None, ""
+        if "lat" in home and "lon" in home:
+            best = None
+            for s in it["sites"]:
+                if s.get("lat") is None or s.get("lon") is None:
+                    continue
+                d = miles_between(home["lat"], home["lon"], s["lat"], s["lon"])
+                if best is None or d < best[0]:
+                    best = (d, s.get("city") or "")
+            if best:
+                it["miles"], it["nearest"] = round(best[0]), best[1]
+    return topics
 
 
 def classify(items: list[dict], since: dt.date) -> None:
@@ -659,10 +835,17 @@ def classify(items: list[dict], since: dt.date) -> None:
         it["updated"] = bool(not it["new"] and last and last >= since)
 
 
+def distance_bucket(it: dict) -> int:
+    miles = it.get("miles")
+    if miles is None:
+        return 1
+    return 0 if miles <= 45 else 1 if miles <= 90 else 2
+
+
 def sort_key(it: dict):
-    """Payment tier first, then new before updated, then most recent first."""
+    """Payment tier, then nearer first, then new before updated, then most recent."""
     date = parse_date(it.get("first_posted") if it.get("new") else it.get("last_updated"))
-    return (TIER_ORDER.index(it["tier"]), not it.get("new"),
+    return (TIER_ORDER.index(it["tier"]), distance_bucket(it), not it.get("new"),
             -(date or dt.date.min).toordinal())
 
 
@@ -671,17 +854,20 @@ def short_date(value: str | None) -> str:
     return f"{d.day} {d.strftime('%b')}" if d else "?"
 
 
-TOPIC_LABELS = {k: label for k, label, _, _ in TOPICS}
-
-
-def describe(it: dict, number: int) -> str:
-    """One numbered study, Slack-safe (bold number avoids list renumbering)."""
+def where(it: dict, n: int = 3) -> str:
+    if it.get("miles") is not None:
+        return f"{it['nearest'] or 'Scotland'} (~{it['miles']} mi)"
     cities = sorted({s["city"] for s in it["sites"] if s["city"]})
-    bits = [", ".join(cities[:3]) or "Scotland"]
+    return ", ".join(cities[:n]) or "Scotland"
+
+
+def describe(it: dict, number: int, labels: dict) -> str:
+    """One numbered study, Slack-safe (bold number avoids list renumbering)."""
+    bits = [where(it)]
     if it["phases"]:
         bits.append(phase_label(it["phases"]))
     if it["topics"]:
-        bits.append(", ".join(TOPIC_LABELS[t] for t in it["topics"]))
+        bits.append(", ".join(labels.get(t, t) for t in it["topics"]))
     bits.append(TIER_LABEL[it["tier"]])
     if it.get("ages"):
         bits.append(it["ages"])
@@ -695,61 +881,68 @@ def describe(it: dict, number: int) -> str:
         bits.append(f"updated {short_date(it['last_updated'])}")
     line = (f"**{number}. {clean(it['title'], 95)}**\n"
             f"{' · '.join(bits)} · [{it['id']}]({it['url']})")
+    if it.get("flags"):
+        line += f"\n⚠️ exclusions mention: {', '.join(it['flags'])}"
     if it["pay_evidence"]:
         line += f"\n_“{clean(it['pay_evidence'][0], 150)}”_"
     return line
 
 
-def describe_short(it: dict) -> str:
-    cities = sorted({s["city"] for s in it["sites"] if s["city"]})
-    tags = [TOPIC_LABELS[t] for t in it["topics"]]
+def describe_short(it: dict, labels: dict) -> str:
+    tags = [labels.get(t, t) for t in it["topics"]]
     if it["tier"] in {"paid", "likely_paid"}:
         tags.append("💷")
-    return (f"• {clean(it['title'], 80)} · {', '.join(cities[:2]) or 'Scotland'}"
+    if it.get("flags"):
+        tags.append("⚠️")
+    return (f"• {clean(it['title'], 80)} · {where(it, 2)}"
             f"{' · ' + ', '.join(tags) if tags else ''} · [{it['id']}]({it['url']})")
 
 
 def build_sections(items: list[dict]) -> dict[str, list[dict]]:
-    week = [it for it in items if it["new"] or it["updated"]]
+    ok = [it for it in items if it.get("eligible", True)]
+    week = [it for it in ok if it["new"] or it["updated"]]
     payish = sorted([it for it in week if it["tier"] in PAYISH_TIERS], key=sort_key)
     topical = sorted([it for it in week if it["topics"] and it["tier"] not in PAYISH_TIERS],
                      key=sort_key)
     shown = {it["id"] for it in payish + topical}
-    other_new = sorted([it for it in items if it["new"] and it["id"] not in shown],
+    other_new = sorted([it for it in ok if it["new"] and it["id"] not in shown],
                        key=sort_key)
     standing = sorted(
-        [it for it in items if not (it["new"] or it["updated"])
+        [it for it in ok if not (it["new"] or it["updated"])
          and (it["topics"] or it["tier"] in {"paid", "likely_paid"})],
         # healthy-volunteer studies on my topics, then paid ones, then topic-only
         key=lambda it: (0 if it["topics"] and it["tier"] in PAYISH_TIERS
                         else 1 if it["tier"] in {"paid", "likely_paid"} else 2, sort_key(it)),
     )
+    hidden = sum(1 for it in items if not it.get("eligible", True)
+                 and (it["new"] or it["updated"]))
     return {"payish": payish, "topical": topical, "other_new": other_new,
-            "standing": standing, "week": week}
+            "standing": standing, "week": week, "hidden": hidden}
 
 
 def render_markdown(items: list[dict], sources: dict, since: dt.date, today: dt.date,
-                    max_other: int = 6, max_standing: int = 8, max_chars: int = 4800) -> str:
+                    max_other: int = 6, max_standing: int = 8, max_chars: int = 4800,
+                    topics: list[dict] | None = None) -> str:
     """Slack digest. Shrinks the lower sections until it fits in one message."""
     sec = build_sections(items)
+    labels = {t["key"]: t["label"] for t in (topics if topics is not None else TOPICS)}
     caps = {"payish": 10, "topical": 10, "other_new": max_other, "standing": max_standing}
 
     def render() -> str:
+        hidden = (f" · {sec['hidden']} hidden (outside your age/sex)" if sec["hidden"] else "")
         out = [
             f"**🧪 Scotland trials · week to {today.strftime('%a')} {today.day} "
             f"{today.strftime('%b')}**",
             f"_{sum(i['new'] for i in items)} new and {sum(i['updated'] for i in items)} "
             f"updated studies recruiting in Scotland since {short_date(since.isoformat())} · "
             f"{len(sec['payish'])} for healthy volunteers or paid · "
-            f"{sum(bool(i['topics']) for i in sec['week'])} on your topics_",
+            f"{sum(bool(i['topics']) for i in sec['week'])} on your topics{hidden}_",
             "",
         ]
         n = 0
         groups = [
             ("payish", "**💷 HEALTHY VOLUNTEERS & PAID**", "_Nothing new this week._"),
-            ("topical", "**🎯 YOUR TOPICS**",
-             "_Nothing new on migraine, muscle, MDMA, cannabis, LSD, psilocybin, ketamine "
-             "or anxiety this week._"),
+            ("topical", "**🎯 YOUR TOPICS**", "_Nothing new on your topics this week._"),
             ("other_new", "**🆕 OTHER NEW STUDIES**", None),
         ]
         for key, heading, empty in groups:
@@ -762,14 +955,14 @@ def render_markdown(items: list[dict], sources: dict, since: dt.date, today: dt.
                 out.append(empty)
             for it in rows[:cap]:
                 n += 1
-                out.append(describe(it, n))
+                out.append(describe(it, n, labels))
             out.append("")
         if sec["standing"] and caps["standing"]:
             rows = sec["standing"]
             more = (f" ({min(len(rows), caps['standing'])} of {len(rows)})"
                     if len(rows) > caps["standing"] else "")
             out.append("**📌 STILL OPEN: YOUR TOPICS & PAID**" + more)
-            out.extend(describe_short(it) for it in rows[:caps["standing"]])
+            out.extend(describe_short(it, labels) for it in rows[:caps["standing"]])
             out.append("")
         bits = [f"{name} ✓ {info['count']}" if info["ok"] else f"{name} ✗ ({info['error']})"
                 for name, info in sources.items()]
@@ -789,8 +982,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--days", type=int, default=7, help="look-back window (default 7)")
     ap.add_argument("--today", help="override today's date (YYYY-MM-DD), for testing")
     ap.add_argument("--sources", default="ctgov,isrctn", help="comma list: ctgov,isrctn")
+    ap.add_argument("--profile", help="personal profile JSON (see module docstring)")
     ap.add_argument("--json", help="write all matching studies as JSON here")
     ap.add_argument("--markdown", help="write the Slack-ready digest here")
+    ap.add_argument("--raw-json", help="write the merged studies with their matching text "
+                    "(before any profile is applied), for offline testing")
     ap.add_argument("--max-other", type=int, default=6)
     ap.add_argument("--max-standing", type=int, default=8)
     args = ap.parse_args(argv)
@@ -798,6 +994,7 @@ def main(argv: list[str] | None = None) -> int:
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
     since = today - dt.timedelta(days=args.days)
     wanted = {s.strip() for s in args.sources.split(",") if s.strip()}
+    profile = load_profile(args.profile)
 
     fetchers = {
         "ctgov": ("ClinicalTrials.gov", ctgov_fetch),
@@ -817,26 +1014,34 @@ def main(argv: list[str] | None = None) -> int:
             print(f"[warn] {name} failed: {e}", file=sys.stderr)
 
     items = merge_duplicates(items)
+    if args.raw_json:
+        with open(args.raw_json, "w", encoding="utf-8") as f:
+            json.dump({"today": today.isoformat(), "sources": sources, "studies": items}, f,
+                      ensure_ascii=False)
+    topics = apply_profile(items, profile)
     classify(items, since)
     items.sort(key=sort_key)
+    sec = build_sections(items)
 
     payload = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "today": today.isoformat(),
         "since": since.isoformat(),
         "sources": sources,
+        "topics": {t["key"]: t["label"] for t in topics},
         "counts": {
             "recruiting_in_scotland": len(items),
+            "eligible": sum(i.get("eligible", True) for i in items),
             "new": sum(i["new"] for i in items),
             "updated": sum(i["updated"] for i in items),
-            "payish_this_week": sum((i["new"] or i["updated"]) and i["tier"] in PAYISH_TIERS
-                                    for i in items),
-            "topics_this_week": sum(bool((i["new"] or i["updated"]) and i["topics"])
-                                    for i in items),
+            "payish_this_week": len(sec["payish"]),
+            "topics_this_week": sum(bool(i["topics"]) for i in sec["week"]),
+            "hidden_this_week": sec["hidden"],
         },
-        "studies": items,
+        "studies": [{k: v for k, v in it.items() if not k.startswith("_")} for it in items],
     }
-    md = render_markdown(items, sources, since, today, args.max_other, args.max_standing)
+    md = render_markdown(items, sources, since, today, args.max_other, args.max_standing,
+                         topics=topics)
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=1, ensure_ascii=False)

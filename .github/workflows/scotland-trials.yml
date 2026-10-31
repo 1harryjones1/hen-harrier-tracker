@@ -30,7 +30,8 @@ jobs:
         run: |
           mkdir -p out
           python clinical-trials-scotland/scotland_trials.py --days 7 \
-            --json out/trials.json --markdown out/digest.md
+            --profile clinical-trials-scotland/profile.example.json \
+            --json out/trials.json --markdown out/digest.md --raw-json out/raw.json
           cat out/digest.md
       - name: List healthy-volunteer and topic studies
         run: |
@@ -44,6 +45,13 @@ jobs:
               ev = (s["pay_evidence"] or [""])[0][:110]
               print(f"{s['tier']:<13} {','.join(s['topics']):<20} {s['id']:<15} {cities:<40} {s['ages']:<12} {s['title'][:80]} | {ev}")
           PY
+      - name: Raw dataset for offline profile testing (gzip + base64)
+        run: |
+          echo "RAWB64START"
+          gzip -9c out/raw.json | base64 -w0
+          echo
+          echo "RAWB64END"
+          rm out/raw.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

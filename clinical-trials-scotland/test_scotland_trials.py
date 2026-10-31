@@ -138,6 +138,70 @@ def ctgov_study(**over):
     return study
 
 
+class NewTopics(unittest.TestCase):
+    def test_cold_and_sauna(self):
+        self.assertIn("cold_heat", st.match_topics(
+            "Intermittent Cold Exposure and Brown Adipose Tissue Hyperplasia", ""))
+        self.assertIn("cold_heat", st.match_topics("Sauna bathing and blood pressure", ""))
+
+    def test_hv_only_topics_need_healthy_volunteers(self):
+        self.assertEqual(st.match_topics("Exercise therapy for COPD", "", healthy=False), [])
+        self.assertIn("exercise", st.match_topics("Exercise therapy for COPD", "", healthy=True))
+        # condition topics still count for patient-only trials
+        self.assertIn("migraine", st.match_topics("Erenumab in chronic migraine", "",
+                                                  healthy=False))
+
+    def test_sleep_ignores_apnoea(self):
+        self.assertNotIn("sleep", st.match_topics("CPAP in obstructive sleep apnoea", ""))
+        self.assertIn("sleep", st.match_topics("Digital CBT for insomnia", ""))
+
+
+class Ages(unittest.TestCase):
+    def test_ages_from_text(self):
+        self.assertEqual(st.ages_from_text("Healthy adults aged 18-45"), (18, 45))
+        self.assertEqual(st.ages_from_text("Men aged between 18 and 40 years"), (18, 40))
+        self.assertEqual(st.ages_from_text("Adults aged 50 years and over"), (50, None))
+        self.assertEqual(st.ages_from_text("People over 65 with heart failure"), (65, None))
+        self.assertEqual(st.ages_from_text("Adults with asthma"), (None, None))
+
+
+class Profile(unittest.TestCase):
+    PROFILE = {
+        "age": 31, "sex": "male",
+        "home": {"name": "Stirling", "lat": 56.12, "lon": -3.94},
+        "extra_topics": [{"key": "tinnitus", "label": "Tinnitus", "regex": "tinnitus",
+                          "scope": "core"}],
+        "exclusion_flags": [{"label": "regular meds",
+                             "regex": "regular medication|prescription medication"}],
+    }
+
+    def item(self, **over):
+        it = st.ctgov_normalise(ctgov_study())
+        it.update(over)
+        return it
+
+    def test_eligibility_and_flags(self):
+        old = self.item(min_age=65)
+        women = self.item(sex="FEMALE")
+        ok = self.item(_exclusion="Taking any regular medication", _core="Tinnitus study")
+        st.apply_profile([old, women, ok], self.PROFILE)
+        self.assertFalse(old["eligible"])
+        self.assertFalse(women["eligible"])
+        self.assertTrue(ok["eligible"])
+        self.assertEqual(ok["flags"], ["regular meds"])
+        self.assertIn("tinnitus", ok["topics"])
+        self.assertEqual(ok["nearest"], "Edinburgh")
+        self.assertTrue(30 <= ok["miles"] <= 40)
+
+    def test_ineligible_hidden_from_digest(self):
+        old = self.item(min_age=65, id="NCT00000001", aliases=[])
+        st.apply_profile([old], self.PROFILE)
+        st.classify([old], TODAY - dt.timedelta(days=7))
+        md = st.render_markdown([old], {}, TODAY - dt.timedelta(days=7), TODAY)
+        self.assertNotIn("NCT00000001", md)
+        self.assertIn("1 hidden", md)
+
+
 class ClinicalTrialsGov(unittest.TestCase):
     def test_normalise_scottish_phase1(self):
         it = st.ctgov_normalise(ctgov_study())

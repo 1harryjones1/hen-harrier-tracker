@@ -1,8 +1,8 @@
 # Scotland clinical trials scraper
 
 Finds clinical trials and research studies that are **recruiting in Scotland right now**,
-flags the ones open to healthy volunteers or that mention payment, tags the topics I care
-about, and writes a Slack-ready weekly digest.
+flags the ones open to healthy volunteers or that mention payment, tags them by topic, and
+writes a Slack-ready weekly digest.
 
 It has nothing to do with the hen harrier tracker; it just lives in this repo.
 
@@ -11,7 +11,7 @@ It has nothing to do with the hen harrier tracker; it just lives in this repo.
 | Source | How | Notes |
 | --- | --- | --- |
 | [ClinicalTrials.gov](https://clinicaltrials.gov/data-api/api) | API v2, recruiting / not-yet-recruiting studies inside a circle over Scotland plus a "Scotland" location search | Sites are kept only if they fall inside a Scotland polygon or name a Scottish town or health board, and the Scottish site itself is still open |
-| [ISRCTN](https://www.isrctn.com/) | Public XML API, `recruitmentCountry:Scotland` (and UK-only records with Scottish centres) whose end date hasn't passed | Recruitment status is worked out from the recruitment dates; the plain-English summary often states payment |
+| [ISRCTN](https://www.isrctn.com/) | Public XML API, `recruitmentCountry:Scotland` (and UK-only records with Scottish centres) whose end date hasn't passed | Recruitment status is worked out from the recruitment dates; the plain-English summary often states payment and ages |
 
 Trials on both registries are shown once. Children-only studies are dropped.
 Be Part of Research's API needs approval, and Call for Participants has shut down, so neither is used.
@@ -26,9 +26,31 @@ Be Part of Research's API needs approval, and Call for Participants has shut dow
 | 💷 paid, but only for people with the condition | Mentions payment, patients only |
 | patients only / expenses covered | Everything else |
 
-Payment detection is keyword-based, so each 💷 line quotes the sentence it matched. Read it before you get excited.
+Payment detection is keyword-based, so each 💷 line quotes the sentence it matched.
 
-Topics: migraine, muscle/gym (hypertrophy, resistance training, protein, creatine; heart "hypertrophy" is ignored), MDMA, cannabis/CBD, LSD, psilocybin, ketamine, other psychedelics, anxiety. Edit `TOPICS` in `scotland_trials.py` to change them.
+## Topics
+
+Built in (`DEFAULT_TOPICS` in `scotland_trials.py`): migraine, anxiety, muscle/gym, exercise,
+cold/heat (cold water, ice baths, sauna, heat therapy, brown fat), HRV/breathwork (incl. vagus
+nerve stimulation), sleep, diet/supplements, mindfulness/yoga, MDMA, cannabis, LSD, psilocybin,
+ketamine and other psychedelics.
+
+Lifestyle topics (muscle, exercise, HRV/breathwork, diet, mindfulness) only count when the study
+takes healthy volunteers, so a patients-only rehab trial with "exercise" in its title doesn't
+show up. Condition topics count for patient trials too.
+
+## Personal profile (optional, kept out of the repo)
+
+`--profile profile.json` personalises the digest. See `profile.example.json`:
+
+- `age`, `sex`: hides studies you can't join (age limits from ClinicalTrials.gov, or parsed from
+  ISRCTN's "Who can participate?" text)
+- `home`: shows the distance to the nearest site and sorts nearer studies first
+- `extra_topics`: more topics, same shape as the built-in ones
+- `exclusion_flags`: phrases to look for in each study's exclusion criteria, shown as
+  "⚠️ exclusions mention: …" so you can see at a glance what might rule you out
+
+The real profile lives in the private scheduled-task prompt, not here, because this repo is public.
 
 ## Digest sections
 
@@ -42,20 +64,25 @@ Topics: migraine, muscle/gym (hypertrophy, resistance training, protein, creatin
 Python 3.9+, standard library only:
 
 ```bash
-python3 scotland_trials.py --days 7 --json trials.json --markdown digest.md
+python3 scotland_trials.py --days 7 --profile profile.json --json trials.json --markdown digest.md
 python3 -m unittest -v          # offline tests
 ```
 
-Options: `--days N`, `--today YYYY-MM-DD`, `--sources ctgov,isrctn`, `--max-other`, `--max-standing`.
+Other options: `--today YYYY-MM-DD`, `--sources ctgov,isrctn`, `--max-other`, `--max-standing`,
+`--raw-json` (merged studies with their matching text, for testing a profile offline).
 
 ## Weekly Slack digest
 
-A Claude scheduled task runs every **Tuesday at 08:35 (UK time)**: it downloads this script from GitHub, runs it, checks the 💷 flags, does a few web searches for paid studies the registries miss (university "volunteers needed" posts and the like), and DMs the result to me on Slack.
+A Claude scheduled task runs every **Tuesday at 08:35 (UK time)**: it downloads this script from
+GitHub, runs it with the private profile, checks the 💷 flags, does a few web searches for paid
+studies the registries miss (university "volunteers needed" posts and the like), and sends the
+result as a Slack DM.
 
-`.github/workflows/scotland-trials.yml` runs the tests and a live scrape whenever this folder changes, and uploads `trials.json` and `digest.md` as a build artifact.
+`.github/workflows/scotland-trials.yml` runs the tests and a live scrape (with the example
+profile) whenever this folder changes.
 
-## Tips for actually getting on paid studies in Scotland
+## Getting on studies in Scotland
 
-- Register with [SHARE](https://www.registerforshare.org/), the NHS Research Scotland register that matches you to studies.
+- Register with [SHARE](https://www.registerforshare.org/), the NHS Research Scotland register that matches people to studies.
 - Join the healthy volunteer registers at the [Edinburgh Clinical Research Facility](https://www.ed.ac.uk/clinical-sciences/edinburgh-clinical-research-facility) and similar facilities in Glasgow, Dundee and Aberdeen.
-- I couldn't find a commercial phase 1 unit recruiting in Scotland; the big paid healthy-volunteer units I found (e.g. Quotient Sciences) are in England.
+- No commercial phase 1 unit recruiting in Scotland turned up; the big paid healthy-volunteer units found (e.g. Quotient Sciences) are in England.
