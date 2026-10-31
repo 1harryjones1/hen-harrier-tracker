@@ -59,6 +59,7 @@ class PaySignals(unittest.TestCase):
         for text in [
             "Samples are returned using the pre-paid and addressed postage box.",
             "The study is paid for by the NIHR.",
+            "Exclusion: participants weighing less than 110 pounds.",
             "Exclusion: participants in paid employment for more than 30 hours.",
             "Patients will use an incentive spirometer after surgery.",
             "Particular attention will be paid to adverse events.",
@@ -103,6 +104,8 @@ class Topics(unittest.TestCase):
     def test_non_matches(self):
         self.assertEqual(self.topics("Left ventricular hypertrophy in hypertension"), [])
         self.assertEqual(self.topics("Hypertrophic cardiomyopathy registry"), [])
+        self.assertEqual(self.topics("Enzyme therapy for Fabry disease",
+                                     "a lysosomal storage disease (LSD)"), [])
         # anxiety is core-only: an outcome measure in the summary is not enough
         self.assertEqual(self.topics("Knee replacement", "HADS anxiety score at 6 weeks"), [])
 

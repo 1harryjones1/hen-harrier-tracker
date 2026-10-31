@@ -79,9 +79,11 @@ TOPICS = [
     ),
 ]
 TOPIC_RES = [(k, label, re.compile(rx, re.I), scope) for k, label, rx, scope in TOPICS]
+# Abbreviation clashes: "LSD" is also lysosomal storage disease.
+TOPIC_EXCLUDE = {"lsd": re.compile(r"lysosomal", re.I)}
 
 PAY_RE = re.compile(
-    r"£\s?\d[\d,.]*|\b\d+\s?(?:pounds|GBP)\b|\bpaid\b|\bpayments?\b|honorari|voucher"
+    r"£\s?\d[\d,.]*|\b\d+\s?GBP\b|\bpaid\b|\bpayments?\b|honorari|voucher"
     r"|gift card|remunerat|stipend|inconvenience (?:allowance|payment)"
     r"|compensat\w*\s+(?:you\s+)?for\s+(?:your\s+)?(?:time|participation|inconvenience)"
     r"|thank[- ]you payment|financial (?:reward|compensation|incentive)",
@@ -227,6 +229,8 @@ def pay_signals(text: str) -> tuple[list[str], bool]:
 def match_topics(core_text: str, all_text: str) -> list[str]:
     found = []
     for key, _label, rx, scope in TOPIC_RES:
+        if key in TOPIC_EXCLUDE and TOPIC_EXCLUDE[key].search(all_text):
+            continue
         if rx.search(core_text) or (scope == "all" and rx.search(all_text)):
             found.append(key)
     return found
@@ -716,7 +720,9 @@ def build_sections(items: list[dict]) -> dict[str, list[dict]]:
     standing = sorted(
         [it for it in items if not (it["new"] or it["updated"])
          and (it["topics"] or it["tier"] in {"paid", "likely_paid"})],
-        key=lambda it: (not it["topics"], sort_key(it)),
+        # healthy-volunteer studies on my topics, then paid ones, then topic-only
+        key=lambda it: (0 if it["topics"] and it["tier"] in PAYISH_TIERS
+                        else 1 if it["tier"] in {"paid", "likely_paid"} else 2, sort_key(it)),
     )
     return {"payish": payish, "topical": topical, "other_new": other_new,
             "standing": standing, "week": week}
