@@ -58,4 +58,4 @@ A Claude scheduled task runs every **Tuesday at 08:35 (UK time)**: it downloads 
 
 - Register with [SHARE](https://www.registerforshare.org/), the NHS Research Scotland register that matches you to studies.
 - Join the healthy volunteer registers at the [Edinburgh Clinical Research Facility](https://www.ed.ac.uk/clinical-sciences/edinburgh-clinical-research-facility) and similar facilities in Glasgow, Dundee and Aberdeen.
-- There is no dedicated commercial phase 1 unit in Scotland at the moment; the big paid healthy-volunteer units are in England (Nottingham, Manchester, Leeds, London).
+- I couldn't find a commercial phase 1 unit recruiting in Scotland; the big paid healthy-volunteer units I found (e.g. Quotient Sciences) are in England.
