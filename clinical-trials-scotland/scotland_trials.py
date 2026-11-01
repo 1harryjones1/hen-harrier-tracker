@@ -1107,16 +1107,24 @@ def describe(it: dict, number: int, labels: dict) -> str:
 
 
 def describe_short(it: dict, labels: dict) -> str:
-    tags = [labels.get(t, t) for t in it["topics"]]
-    pay = (it.get("snapshot") or {}).get("pay")
-    if pay:
-        tags.append(f"💷 {pay}")
-    elif it["tier"] in {"paid", "likely_paid"}:
-        tags.append("💷")
+    """One compact line: title, place, topics, then a short snapshot."""
+    snap = it.get("snapshot") or {}
+    bits = [clean(it["title"], 70), where(it, 2)]
+    if it["topics"]:
+        bits.append(", ".join(labels.get(t, t) for t in it["topics"]))
+    if snap.get("pay"):
+        bits.append(f"💷 {snap['pay']}")
+    elif it["tier"] == "likely_paid":
+        bits.append("💷 probably paid")
+    if snap.get("time"):
+        bits.append(f"⏱ {', '.join(snap['time'].split(', ')[:2])}")
+    if snap.get("involves"):
+        bits.append(f"🔬 {', '.join(snap['involves'][:2])}")
+    if snap.get("risk"):
+        bits.append(snap["risk"].split(" ")[0])
     if it.get("flags"):
-        tags.append("⚠️")
-    return (f"• {clean(it['title'], 80)} · {where(it, 2)}"
-            f"{' · ' + ', '.join(tags) if tags else ''} · [{it['id']}]({it['url']})")
+        bits.append("⚠️ " + ", ".join(it["flags"]))
+    return f"• {' · '.join(bits)} · [{it['id']}]({it['url']})"
 
 
 def build_sections(items: list[dict]) -> dict[str, list[dict]]:
@@ -1193,6 +1201,8 @@ def render_digest(items: list[dict], sources: dict, since: dt.date, today: dt.da
             out.append("**📌 STILL OPEN: YOUR TOPICS & PAID**" + more)
             out.extend(describe_short(it, labels) for it in rows[:caps["standing"]])
             out.append("")
+        out.append("_💷 pay · ⏱ time · 🔬 what's involved · 🟢🟠🔴 rough risk, estimated from "
+                   "the registry text · ⚠️ exclusions that may rule you out_")
         bits = [f"{name} ✓ {info['count']}" if info["ok"] else f"{name} ✗ ({info['error']})"
                 for name, info in sources.items()]
         out.append("_Sources: " + " · ".join(bits) + "_")
