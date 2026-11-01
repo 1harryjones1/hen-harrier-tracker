@@ -1144,7 +1144,15 @@ def build_sections(items: list[dict]) -> dict[str, list[dict]]:
 def render_markdown(items: list[dict], sources: dict, since: dt.date, today: dt.date,
                     max_other: int = 6, max_standing: int = 8, max_chars: int = 4800,
                     topics: list[dict] | None = None) -> str:
-    """Slack digest. Shrinks the lower sections until it fits in one message."""
+    return render_digest(items, sources, since, today, max_other, max_standing, max_chars,
+                         topics)[0]
+
+
+def render_digest(items: list[dict], sources: dict, since: dt.date, today: dt.date,
+                  max_other: int = 6, max_standing: int = 8, max_chars: int = 4800,
+                  topics: list[dict] | None = None) -> tuple[str, list[dict]]:
+    """Slack digest plus the numbered studies in it, in order. Shrinks the lower
+    sections until it fits in one message."""
     sec = build_sections(items)
     labels = {t["key"]: t["label"] for t in (topics if topics is not None else TOPICS)}
     caps = {"payish": 8, "topical": 8, "other_new": max_other, "standing": max_standing}
@@ -1195,7 +1203,27 @@ def render_markdown(items: list[dict], sources: dict, since: dt.date, today: dt.
         while len(text) > max_chars and caps[key] > (0 if key in ("standing", "other_new") else 3):
             caps[key] -= 1
             text = render()
-    return text
+    numbered = (sec["payish"][:caps["payish"]] + sec["topical"][:caps["topical"]]
+                + sec["other_new"][:caps["other_new"]])
+    return text, numbered
+
+
+def render_details(numbered: list[dict]) -> str:
+    """Plain-text notes on each numbered study, for checking the snapshot lines."""
+    out = []
+    for n, it in enumerate(numbered, 1):
+        out.append(f"{n}. {it['id']} | {it['title']}")
+        out.append(f"   who: {TIER_LABEL[it['tier']]} · {it.get('ages') or 'adults'} · "
+                   f"{where(it)} · phases: {phase_label(it['phases']) or 'n/a'} · "
+                   f"type: {it.get('study_type') or '?'}")
+        out.append(f"   snapshot now: {snapshot_line(it)}")
+        if it.get("pay_evidence"):
+            out.append(f"   pay quote: {' | '.join(it['pay_evidence'])}")
+        if it.get("flags"):
+            out.append(f"   exclusions mention: {', '.join(it['flags'])}")
+        out.append(f"   details: {it.get('details') or '(none)'}")
+        out.append("")
+    return "\n".join(out)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1206,6 +1234,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--profile", help="personal profile JSON (see module docstring)")
     ap.add_argument("--json", help="write all matching studies as JSON here")
     ap.add_argument("--markdown", help="write the Slack-ready digest here")
+    ap.add_argument("--details", help="write notes on each numbered study (pay quotes, what's "
+                    "involved) here, for checking the snapshot lines")
     ap.add_argument("--raw-json", help="write the merged studies with their matching text "
                     "(before any profile is applied), for offline testing")
     ap.add_argument("--max-other", type=int, default=6)
@@ -1261,8 +1291,11 @@ def main(argv: list[str] | None = None) -> int:
         },
         "studies": [{k: v for k, v in it.items() if not k.startswith("_")} for it in items],
     }
-    md = render_markdown(items, sources, since, today, args.max_other, args.max_standing,
-                         topics=topics)
+    md, numbered = render_digest(items, sources, since, today, args.max_other,
+                                 args.max_standing, topics=topics)
+    if args.details:
+        with open(args.details, "w", encoding="utf-8") as f:
+            f.write(render_details(numbered))
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=1, ensure_ascii=False)

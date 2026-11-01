@@ -341,6 +341,10 @@ class Digest(unittest.TestCase):
         self.assertIn("**1. Ketamine and memory in healthy adults**", md)
         self.assertIn("£150", md)
         self.assertLess(len(md), 4800)
+        _, numbered = st.render_digest(items, {}, TODAY - dt.timedelta(days=7), TODAY)
+        notes = st.render_details(numbered)
+        self.assertIn("1. ISRCTN11453367", notes)
+        self.assertIn("pay quote:", notes)
 
 
 if __name__ == "__main__":

@@ -31,8 +31,11 @@ jobs:
           mkdir -p out
           python clinical-trials-scotland/scotland_trials.py --days 7 \
             --profile clinical-trials-scotland/profile.example.json \
-            --json out/trials.json --markdown out/digest.md --raw-json out/raw.json
+            --json out/trials.json --markdown out/digest.md --raw-json out/raw.json \
+            --details out/details.txt
           cat out/digest.md
+          echo "----- details -----"
+          cat out/details.txt
       - name: List healthy-volunteer and topic studies
         run: |
           python - <<'PY'
