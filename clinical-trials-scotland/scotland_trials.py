@@ -1236,12 +1236,31 @@ def render_details(numbered: list[dict]) -> str:
     return "\n".join(out)
 
 
+def load_ci_log(path: str) -> dict:
+    """Raw dataset from a GitHub Actions log of scotland-trials.yml (the step that
+    prints it gzipped and base64-encoded between RAWB64START and RAWB64END). The
+    file can be the plain log or the JSON a GitHub tool saved it as."""
+    import base64
+    import gzip
+    text = open(path, encoding="utf-8", errors="replace").read()
+    try:
+        text = json.loads(text).get("logs_content", text)
+    except (ValueError, AttributeError):
+        pass
+    m = re.search(r"RAWB64START\s*\n(?:\S+Z )?(\S+)\s*\n(?:\S+Z )?RAWB64END", text)
+    if not m:
+        raise ValueError(f"no RAWB64START/RAWB64END block in {path}")
+    return json.loads(gzip.decompress(base64.b64decode(m.group(1))))
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--days", type=int, default=7, help="look-back window (default 7)")
     ap.add_argument("--today", help="override today's date (YYYY-MM-DD), for testing")
     ap.add_argument("--sources", default="ctgov,isrctn", help="comma list: ctgov,isrctn")
     ap.add_argument("--profile", help="personal profile JSON (see module docstring)")
+    ap.add_argument("--from-ci-log", help="use the raw dataset printed in a scotland-trials.yml "
+                    "GitHub Actions log instead of fetching the registries")
     ap.add_argument("--json", help="write all matching studies as JSON here")
     ap.add_argument("--markdown", help="write the Slack-ready digest here")
     ap.add_argument("--details", help="write notes on each numbered study (pay quotes, what's "
@@ -1252,7 +1271,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--max-standing", type=int, default=8)
     args = ap.parse_args(argv)
 
-    today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
+    raw = load_ci_log(args.from_ci_log) if args.from_ci_log else None
+    if args.today:
+        today = dt.date.fromisoformat(args.today)
+    elif raw:
+        today = dt.date.fromisoformat(raw["today"])
+    else:
+        today = dt.date.today()
     since = today - dt.timedelta(days=args.days)
     wanted = {s.strip() for s in args.sources.split(",") if s.strip()}
     profile = load_profile(args.profile)
@@ -1263,6 +1288,9 @@ def main(argv: list[str] | None = None) -> int:
     }
     items: list[dict] = []
     sources: dict[str, dict] = {}
+    if raw:
+        items, sources = raw["studies"], raw["sources"]
+        fetchers = {}
     for key, (name, fn) in fetchers.items():
         if key not in wanted:
             continue
@@ -1274,7 +1302,8 @@ def main(argv: list[str] | None = None) -> int:
             sources[name] = {"ok": False, "count": 0, "error": f"{type(e).__name__}: {e}"[:200]}
             print(f"[warn] {name} failed: {e}", file=sys.stderr)
 
-    items = merge_duplicates(items)
+    if not raw:
+        items = merge_duplicates(items)
     if args.raw_json:
         with open(args.raw_json, "w", encoding="utf-8") as f:
             json.dump({"today": today.isoformat(), "sources": sources, "studies": items}, f,

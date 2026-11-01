@@ -347,5 +347,25 @@ class Digest(unittest.TestCase):
         self.assertIn("pay quote:", notes)
 
 
+class CiLog(unittest.TestCase):
+    def test_round_trip(self):
+        import base64, gzip, json, tempfile
+        it = st.isrctn_normalise(Isrctn().trial(), TODAY)
+        blob = base64.b64encode(gzip.compress(json.dumps(
+            {"today": TODAY.isoformat(), "sources": {}, "studies": [it]}).encode())).decode()
+        log = ("2026-11-03T08:00:00Z RAWB64START\n2026-11-03T08:00:01Z " + blob
+               + "\n2026-11-03T08:00:02Z RAWB64END\n")
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "log.txt")
+            with open(path, "w") as f:
+                json.dump({"logs_content": log}, f)
+            data = st.load_ci_log(path)
+            self.assertEqual(data["studies"][0]["id"], "ISRCTN11453367")
+            out = os.path.join(d, "digest.md")
+            rc = st.main(["--from-ci-log", path, "--markdown", out])
+            self.assertEqual(rc, 1)  # no sources recorded in this fake log
+            self.assertIn("Ketamine and memory", open(out).read())
+
+
 if __name__ == "__main__":
     unittest.main()
