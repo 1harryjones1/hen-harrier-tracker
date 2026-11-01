@@ -470,7 +470,10 @@ def time_commitment(text: str) -> str:
         n = _num(m.group(1))
         kind = "session" if "session" in m.group(0).lower() else "visit"
         bits.append(f"{n} {kind}{'s' if n != 1 else ''}")
-    m = DURATION_RE.search(text) or DURATION_ADJ_RE.search(text)
+    # Skip gaps between periods ("separated by a break of up to 28 days").
+    gap = re.compile(r"break|washout|wash-out|separat|apart|interval|gap|rest period", re.I)
+    m = next((d for rx in (DURATION_RE, DURATION_ADJ_RE) for d in rx.finditer(text)
+              if not gap.search(text[max(0, d.start() - 45): d.start()])), None)
     if m:
         n = _num(m.group(1))
         unit = {"day": "day", "week": "wk", "month": "mo", "year": "yr"}[m.group(2).lower()]
