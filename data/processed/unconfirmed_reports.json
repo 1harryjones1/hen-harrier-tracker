@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T11:12:25Z",
+  "generated_at": "2026-11-01T12:00:12Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -204,6 +204,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=67966",
       "source_name": "Raptor Persecution UK",
       "title": "Post-mortems suggest five Hen Harrier chicks found dead in nest on grouse moor in northern England had injuries consistent with being stabbed"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=68130": {
+      "fetched_at": "2026-11-01T12:00:12Z",
+      "link": "https://raptorpersecutionuk.org/2026/11/01/154-hen-harriers-confirmed-missing-or-illegally-killed-in-uk-since-2018-most-of-them-on-or-close-to-grouse-moors/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-11-01T08:06:10Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=68130",
+      "source_name": "Raptor Persecution UK",
+      "title": "154 Hen Harriers confirmed ‘missing’ or illegally killed in UK since 2018, most of them on or close to grouse moors"
     }
   },
   "schema_version": 1
