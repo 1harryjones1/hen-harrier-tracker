@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Scotland trials: private profile and output
+clinical-trials-scotland/profile.json
+clinical-trials-scotland/out/
