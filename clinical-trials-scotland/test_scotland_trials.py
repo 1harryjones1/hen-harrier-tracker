@@ -225,8 +225,9 @@ class Snapshot(unittest.TestCase):
         self.assertIn("5 nights in", st.time_commitment("You will stay in the unit for 5 nights."))
         self.assertIn("overnight stay", st.time_commitment("One visit includes an overnight stay."))
         self.assertEqual(st.time_commitment("Complete an online questionnaire."), "")
-        self.assertEqual(st.time_commitment(
-            "Two 7-day periods, separated by a break of up to 28 days."), "")
+        washout = st.time_commitment("Two 7-day periods, separated by a break of up to 28 days.")
+        self.assertNotIn("28", washout)
+        self.assertEqual(washout, "over 7 days")
 
     def test_involvement_and_risk(self):
         item = {"phases": [], "pay_evidence": []}
