@@ -79,13 +79,19 @@ Other options: `--today YYYY-MM-DD`, `--sources ctgov,isrctn`, `--max-other`, `-
 
 ## Weekly Slack digest
 
-A Claude scheduled task runs every **Tuesday at 08:35 (UK time)**: it downloads this script from
-GitHub, runs it with the private profile, checks the 💷 flags, does a few web searches for paid
-studies the registries miss (university "volunteers needed" posts and the like), and sends the
-result as a Slack DM.
+Every **Tuesday at 08:35 (UK time)** a Claude scheduled task wakes a dedicated Claude Code session
+("Scotland trials · weekly runner", with this repo checked out and Slack + GitHub connected). It:
 
-`.github/workflows/scotland-trials.yml` runs the tests and a live scrape (with the example
-profile) whenever this folder changes.
+1. triggers `.github/workflows/scotland-trials.yml` on this branch (GitHub's runners can reach the
+   registries; the Claude environment can't), waits for it, and reads the job log;
+2. runs `scotland_trials.py --from-ci-log <log> --profile <private profile>` to rebuild the digest
+   from the raw data the workflow prints, with the private profile applied locally;
+3. corrects each numbered study's snapshot line from `--details`, looks up pay on recruitment
+   pages, and searches for paid studies the registries miss;
+4. sends the result as a Slack DM.
+
+The workflow also runs the tests and a live scrape (with the example profile) whenever this folder
+changes. Its logs only ever contain public registry data and the example profile.
 
 ## Getting on studies in Scotland
 
