@@ -26,7 +26,13 @@ Be Part of Research's API needs approval, and Call for Participants has shut dow
 | 💷 paid, but only for people with the condition | Mentions payment, patients only |
 | patients only / expenses covered | Everything else |
 
-Payment detection is keyword-based, so each 💷 line quotes the sentence it matched.
+Each numbered study also gets a snapshot line pulled from the registry text:
+
+`💷 pay · ⏱ visits, length, hours per visit, overnight stays · 🔬 what's done (drug, bloods, biopsies, scans…) · 🟢/🟠/🔴 rough risk`
+
+It's keyword-based (£ amounts, "four visits over 12 weeks", "muscle biopsy", "PET" and so on), so treat it as a first pass.
+`--details details.txt` writes the full "what does it involve" text for each numbered study; the weekly Claude
+run uses it to correct the snapshots and to look up pay on recruitment pages.
 
 ## Topics
 
