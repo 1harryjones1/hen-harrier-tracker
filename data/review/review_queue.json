@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T16:14:00Z",
+  "generated_at": "2026-11-02T16:11:05Z",
   "items": {
     "rq_match_evt_20260710T122157Z_213843": {
       "bird_id": "213843",
@@ -380,6 +380,54 @@
         }
       ],
       "summary": "Sofia (34346): alive -> dead, June 2026 update. no habitat-layer match."
+    },
+    "rq_match_evt_20261102T161105Z_234077": {
+      "bird_id": "234077",
+      "bird_name": "Craig",
+      "confidence_tier": "location_not_disclosed",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20261102T161105Z_234077",
+        "data/raw/ne_hen_harrier_ods/20261102T161105Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20261102T161105Z_234077",
+      "review_id": "rq_match_evt_20261102T161105Z_234077",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-11-02T16:11:05Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Craig (234077): alive -> missing_fate_unknown, October 2026 update. location not disclosed by NE."
+    },
+    "rq_match_evt_20261102T161105Z_51976": {
+      "bird_id": "51976",
+      "bird_name": "Islay",
+      "confidence_tier": "location_not_disclosed",
+      "evidence_links": [
+        "data/processed/moorland_matches.json#match_evt_20261102T161105Z_51976",
+        "data/raw/ne_hen_harrier_ods/20261102T161105Z.ods"
+      ],
+      "item_type": "moorland_match",
+      "ref_id": "match_evt_20261102T161105Z_51976",
+      "review_id": "rq_match_evt_20261102T161105Z_51976",
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "reviewer_notes": null,
+      "status": "pending",
+      "status_history": [
+        {
+          "at": "2026-11-02T16:11:05Z",
+          "by": "system",
+          "status": "pending"
+        }
+      ],
+      "summary": "Islay (51976): alive -> missing_fate_unknown, October 2026 update. location not disclosed by NE."
     }
   },
   "schema_version": 1

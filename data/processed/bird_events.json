@@ -633,6 +633,48 @@
       "raw_snapshot_path": "data/raw/ne_hen_harrier_ods/20260817T072540Z.ods",
       "source_update_label": "August 2026 update",
       "source_url": "https://assets.publishing.service.gov.uk/media/6a7ddd103be22055c1aaa29a/HH-satellite-tracked-update-august-2026.ods"
+    },
+    {
+      "bird_id": "234077",
+      "bird_name": "Craig",
+      "coordinates": null,
+      "detected_at": "2026-11-02T16:11:05Z",
+      "event_id": "evt_20261102T161105Z_234077",
+      "event_type": "status_change",
+      "location_status": "redacted_confidential",
+      "new_status": "missing_fate_unknown",
+      "previous_status": "alive",
+      "raw_snapshot_path": "data/raw/ne_hen_harrier_ods/20261102T161105Z.ods",
+      "source_update_label": "October 2026 update",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6ae4880bec36e258a1998474/HH-satellite-tracked-update-october-2026.ods"
+    },
+    {
+      "bird_id": "51976",
+      "bird_name": "Islay",
+      "coordinates": null,
+      "detected_at": "2026-11-02T16:11:05Z",
+      "event_id": "evt_20261102T161105Z_51976",
+      "event_type": "status_change",
+      "location_status": "not_applicable_alive",
+      "new_status": "missing_fate_unknown",
+      "previous_status": "alive",
+      "raw_snapshot_path": "data/raw/ne_hen_harrier_ods/20261102T161105Z.ods",
+      "source_update_label": "October 2026 update",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6ae4880bec36e258a1998474/HH-satellite-tracked-update-october-2026.ods"
+    },
+    {
+      "bird_id": "51988",
+      "bird_name": "Jet",
+      "coordinates": null,
+      "detected_at": "2026-11-02T16:11:05Z",
+      "event_id": "evt_20261102T161105Z_51988",
+      "event_type": "location_updated",
+      "location_status": "not_applicable_alive",
+      "new_location_text": "France",
+      "previous_location_text": "Northumberland",
+      "raw_snapshot_path": "data/raw/ne_hen_harrier_ods/20261102T161105Z.ods",
+      "source_update_label": "October 2026 update",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6ae4880bec36e258a1998474/HH-satellite-tracked-update-october-2026.ods"
     }
   ],
   "schema_version": 1
