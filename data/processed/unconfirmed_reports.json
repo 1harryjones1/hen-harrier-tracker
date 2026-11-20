@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T14:40:17Z",
+  "generated_at": "2026-11-20T14:20:36Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -216,6 +216,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=68130",
       "source_name": "Raptor Persecution UK",
       "title": "154 Hen Harriers confirmed ‘missing’ or illegally killed in UK since 2018, most of them on or close to grouse moors"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=68351": {
+      "fetched_at": "2026-11-20T14:20:36Z",
+      "link": "https://raptorpersecutionuk.org/2026/11/20/in-2026-there-wasnt-a-single-reported-hen-harrier-breeding-attempt-on-grouse-moors-in-the-north-pennines-north-york-moors-yorkshire-dales-nidderdale-peak-district/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-11-20T07:45:40Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=68351",
+      "source_name": "Raptor Persecution UK",
+      "title": "In 2026, there wasn’t a single reported Hen Harrier breeding attempt on grouse moors in the North Pennines, North York Moors, Yorkshire Dales, Nidderdale & Peak District"
     }
   },
   "schema_version": 1
