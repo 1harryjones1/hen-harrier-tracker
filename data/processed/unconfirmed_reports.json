@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T15:45:38Z",
+  "generated_at": "2026-11-27T15:33:23Z",
   "reports": {
     "ne_blog:https://naturalengland.blog.gov.uk/?p=7459": {
       "fetched_at": "2026-07-23T07:59:57Z",
@@ -228,6 +228,18 @@
       "report_id": "rpuk:http://raptorpersecutionuk.org/?p=68351",
       "source_name": "Raptor Persecution UK",
       "title": "In 2026, there wasn’t a single reported Hen Harrier breeding attempt on grouse moors in the North Pennines, North York Moors, Yorkshire Dales, Nidderdale & Peak District"
+    },
+    "rpuk:http://raptorpersecutionuk.org/?p=68430": {
+      "fetched_at": "2026-11-27T15:33:23Z",
+      "link": "https://raptorpersecutionuk.org/2026/11/27/satellite-tagged-hen-harrier-ella-disappears-on-grouse-moor-in-north-york-moors-national-park/",
+      "matched_bird_ids": [],
+      "matched_keywords": [
+        "harrier"
+      ],
+      "published_at": "2026-11-27T04:56:42Z",
+      "report_id": "rpuk:http://raptorpersecutionuk.org/?p=68430",
+      "source_name": "Raptor Persecution UK",
+      "title": "Satellite-tagged Hen Harrier Ella ‘disappears’ on grouse moor in North York Moors National Park"
     }
   },
   "schema_version": 1
